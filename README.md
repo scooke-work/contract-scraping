@@ -1,5 +1,7 @@
 # B2B Contracts Knowledge Scraper
 
+[![tests](https://github.com/scooke-work/contract-scraping/actions/workflows/tests.yml/badge.svg)](https://github.com/scooke-work/contract-scraping/actions/workflows/tests.yml)
+
 A polite, reusable Python tool that scrapes authoritative sources on **business-to-business
 (B2B) contracts and contracting** and turns them into clean, structured data an LLM can
 ingest directly (RAG / embeddings), plus an optional **structured-extraction** pass that
@@ -210,3 +212,10 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
   control or have permission to crawl faster. (SEC asks for ≤10 req/s aggregate.)
 - Scraped text is for **research / knowledge** use. Respect each source's terms and
   copyright before redistributing collected content.
+
+## License
+
+MIT — see [LICENSE](LICENSE). This licenses the **scraper code**, not any content you
+collect with it: EDGAR filings are US-government public domain, but Wikipedia (CC-BY-SA),
+Trans-Lex, and Cornell LII carry their own terms — keep that in mind before redistributing
+a scraped corpus.

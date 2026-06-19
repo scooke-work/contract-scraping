@@ -133,6 +133,27 @@ def matches_any(url: str, patterns: list[str]) -> bool:
     return any(re.search(p, url) for p in patterns)
 
 
+def clean_edgar_text(text: str, url: str) -> str:
+    """Strip EDGAR's SGML/filename header noise from an extracted exhibit so the
+    stored text — and every chunk derived from it — is clean. Removes the leading
+    'EX-10.2 3 file.htm EX-10.2 file.htm' header block (possibly repeated) plus
+    scattered running-header filename artifacts (e.g. 'exv10w3', 'dex102')."""
+    name = url.rsplit("/", 1)[-1]
+    fname = re.escape(name)
+    slug = re.escape(re.sub(r"\.\w+$", "", name))
+    # 1) leading SGML/filename header block, possibly repeated
+    text = re.sub(
+        r"^\s*(?:EX-\S+\s+|\d+\s+|Exhibit\s+[\d.]+\s*|Document\s+|"
+        + fname + r"\s*|" + slug + r"\s*)+",
+        "", text, count=1, flags=re.I)
+    # 2) scattered filename artifacts (EDGAR naming — never real contract prose)
+    text = re.sub(r"\b" + fname + r"\b", " ", text, flags=re.I)
+    if len(slug) > 4:
+        text = re.sub(r"\b" + slug + r"\b", " ", text, flags=re.I)
+    text = re.sub(r"\b\w*(?:exv\d+w\d+|dex\d+)\w*\b", " ", text, flags=re.I)
+    return re.sub(r"[ \t]{2,}", " ", text).strip()
+
+
 class RobotsCache:
     """Caches one RobotFileParser per host and answers can_fetch()."""
 
@@ -399,10 +420,13 @@ class ContractScraper:
                 return None
             print(f"    [parsed {kind} in-memory] {len(text.split())} words")
             return {"title": "", "author": "", "date": "", "description": "",
-                    "text": text.strip()}
+                    "text": clean_edgar_text(text, url)}
         # HTML / XML / plain text
         html = content.decode("utf-8", errors="replace")
-        return self._extract_edgar(html, url)
+        rec = self._extract_edgar(html, url)
+        if rec:
+            rec["text"] = clean_edgar_text(rec["text"], url)
+        return rec
 
     @staticmethod
     def _pdf_to_text(data: bytes) -> str:

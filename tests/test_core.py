@@ -88,3 +88,15 @@ def test_binary_skipped_when_disabled(tmp_path, monkeypatch):
     monkeypatch.setattr(scraper, "_fetch_bytes",
                         lambda url, headers=None: (b"%PDF-1.4 ...", "application/pdf"))
     assert scraper._fetch_and_extract_document("http://x/ex.pdf", {}) is None
+
+
+def test_clean_edgar_text_strips_header_and_artifacts():
+    url = "https://www.sec.gov/Archives/edgar/data/1/000/k35009exv10w3.htm"
+    raw = ("EX-10.3 4 k35009exv10w3.htm THIRD AMENDMENT TO THE MASTER SERVICES "
+           "AGREEMENT exv10w3 Exhibit 10.3 This Agreement is governed by New York law.")
+    out = sc.clean_edgar_text(raw, url)
+    assert out.startswith("THIRD AMENDMENT")
+    assert "k35009exv10w3" not in out      # full slug gone
+    assert "exv10w3" not in out            # scattered running-header artifact gone
+    assert ".htm" not in out
+    assert "New York law" in out           # real prose preserved
