@@ -1,0 +1,9 @@
+# Dev / full install: core runtime + structured-extraction + test tooling.
+-r requirements.txt
+
+# Structured post-pass (extract_structured.py) LLM backend. Optional at runtime:
+# without it — or without ANTHROPIC_API_KEY — the extractor falls back to heuristics.
+anthropic>=0.39
+
+# Tests
+pytest>=8

@@ -1,0 +1,150 @@
+# sources.yaml
+# ------------------------------------------------------------------
+# Curated, authoritative, scraping-tolerant sources on Business-to-
+# Business (B2B) contracts and contracting. Edit freely: add seeds,
+# bump max_pages, or add whole new sources. Every source honours
+# robots.txt and the global rate limit automatically.
+#
+# Each source supports:
+#   name              display name
+#   category          grouping label kept on every record/chunk
+#   seeds             starting URLs (always fetched)
+#   allowed_domains   crawl stays inside these (defaults to seed domain)
+#   follow_links      if true, follow in-domain links matching include/exclude
+#   max_pages         cap for this source (defaults to config.max_pages_default)
+#   include_patterns  regexes a URL must match to be followed
+#   exclude_patterns  regexes that disqualify a URL from being followed
+# ------------------------------------------------------------------
+
+config:
+  user_agent: "B2BContractKnowledgeBot/1.0 (+research; respects robots.txt)"
+  request_delay: 1.5        # seconds between hits to the same host (be polite)
+  timeout: 30
+  max_pages_default: 25
+  chunk_words: 800
+  chunk_overlap: 100
+  min_words: 60
+
+sources:
+  # ---- US law: authoritative primary + secondary reference -------------
+  - name: "Cornell LII"
+    category: "us-law-reference"
+    follow_links: true
+    max_pages: 60
+    allowed_domains:
+      - "law.cornell.edu"
+    seeds:
+      - "https://www.law.cornell.edu/wex/contract"
+      - "https://www.law.cornell.edu/wex/uniform_commercial_code"
+      - "https://www.law.cornell.edu/ucc/2"            # UCC Article 2 — Sale of Goods (core B2B)
+      - "https://www.law.cornell.edu/wex/breach_of_contract"
+      - "https://www.law.cornell.edu/wex/indemnity"
+      - "https://www.law.cornell.edu/wex/force_majeure"
+      - "https://www.law.cornell.edu/wex/warranty"
+    include_patterns:
+      - "law\\.cornell\\.edu/(wex|ucc/2)"
+    exclude_patterns:
+      - "(login|search|\\?|#|/cfr/|/uscode/|/rules/|/supct/)"
+
+  # ---- Broad conceptual coverage (well-structured, LLM-friendly) -------
+  - name: "Wikipedia"
+    category: "concepts"
+    follow_links: false
+    seeds:
+      - "https://en.wikipedia.org/wiki/Contract"
+      - "https://en.wikipedia.org/wiki/Freedom_of_contract"
+      - "https://en.wikipedia.org/wiki/Offer_and_acceptance"
+      - "https://en.wikipedia.org/wiki/Consideration"
+      - "https://en.wikipedia.org/wiki/Breach_of_contract"
+      - "https://en.wikipedia.org/wiki/Indemnity"
+      - "https://en.wikipedia.org/wiki/Limitation_of_liability"
+      - "https://en.wikipedia.org/wiki/Force_majeure"
+      - "https://en.wikipedia.org/wiki/Service-level_agreement"
+      - "https://en.wikipedia.org/wiki/Master_service_agreement"
+      - "https://en.wikipedia.org/wiki/Statement_of_work"
+      - "https://en.wikipedia.org/wiki/Non-disclosure_agreement"
+      - "https://en.wikipedia.org/wiki/Uniform_Commercial_Code"
+      - "https://en.wikipedia.org/wiki/Incoterms"
+      - "https://en.wikipedia.org/wiki/Letter_of_intent"
+      - "https://en.wikipedia.org/wiki/Memorandum_of_understanding"
+      - "https://en.wikipedia.org/wiki/Arbitration_clause"
+      - "https://en.wikipedia.org/wiki/Liquidated_damages"
+      - "https://en.wikipedia.org/wiki/Warranty"
+      - "https://en.wikipedia.org/wiki/Contract_management"
+      - "https://en.wikipedia.org/wiki/Procurement"
+      - "https://en.wikipedia.org/wiki/Request_for_proposal"
+      - "https://en.wikipedia.org/wiki/Indemnification"
+      - "https://en.wikipedia.org/wiki/Contractual_term"
+
+  # ---- International B2B sale of goods (UN convention) ------------------
+  # Full inline CISG article text (Arts. 1-101) on a single page. NB: the former
+  # iicl.law.virginia.edu host is defunct; Trans-Lex hosts the complete text.
+  - name: "CISG (Trans-Lex)"
+    category: "international-law"
+    follow_links: false
+    allowed_domains:
+      - "trans-lex.org"
+    seeds:
+      - "https://www.trans-lex.org/500100"
+
+  # ---- Plain-language business explanations ---------------------------
+  # Investopedia honours robots.txt; pages it disallows are skipped
+  # automatically. These are common B2B contract concepts.
+  - name: "Investopedia"
+    category: "business-explainer"
+    follow_links: false
+    allowed_domains:
+      - "investopedia.com"
+    seeds:
+      - "https://www.investopedia.com/terms/c/contract.asp"
+      - "https://www.investopedia.com/terms/m/master-service-agreement.asp"
+      - "https://www.investopedia.com/terms/s/service-level-agreement.asp"
+      - "https://www.investopedia.com/terms/n/nda.asp"
+      - "https://www.investopedia.com/terms/i/indemnity.asp"
+      - "https://www.investopedia.com/terms/f/forcemajeure.asp"
+      - "https://www.investopedia.com/terms/b/breach-of-contract.asp"
+      - "https://www.investopedia.com/terms/l/letterofintent.asp"
+
+  # ---- Real executed B2B contracts from SEC EDGAR ----------------------
+  # Public-company filings include real material contracts (exhibit 10):
+  # MSAs, supply, reseller, licensing, and distribution agreements. This
+  # source queries EDGAR full-text search and pulls the actual documents,
+  # giving the knowledge base authentic clause language (not just theory).
+  #
+  # NOTE: SEC asks automated clients to send a descriptive User-Agent with
+  # a real contact email — set config.edgar_user_agent at the top of this
+  # file before running this source heavily.
+  - name: "SEC EDGAR Contracts"
+    category: "real-agreements"
+    type: edgar
+    max_pages: 24            # total agreements to collect across all queries (bump to sample more)
+    per_query: 3             # cap per query (keeps variety across the taxonomy below)
+    exhibit_types:           # keep only real contract exhibits, not filing bodies that
+      - "EX-10"              # mention the phrase. EX-10 = "Material Contracts".
+    # Optional date window (EDGAR full-text search covers 2001-present):
+    # start_date: "2018-01-01"
+    # end_date:   "2025-12-31"
+    forms:                   # filings that carry material contracts
+      - "8-K"
+      - "10-K"
+      - "10-Q"
+      - "S-1"
+    queries:                 # B2B contract taxonomy — each is a full-text phrase search
+      - "master services agreement"
+      - "master supply agreement"
+      - "manufacturing and supply agreement"
+      - "reseller agreement"
+      - "value added reseller agreement"
+      - "distribution agreement"
+      - "software license agreement"
+      - "end user license agreement"
+      - "software as a service agreement"
+      - "subscription agreement"
+      - "statement of work"
+      - "master purchase agreement"
+      - "professional services agreement"
+      - "consulting agreement"
+      - "joint development agreement"
+      - "original equipment manufacturer agreement"
+      - "strategic alliance agreement"
+      - "licensing agreement"
