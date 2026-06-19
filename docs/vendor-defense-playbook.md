@@ -2,7 +2,7 @@
 
 > Internal negotiation cheat-sheet for the **vendor side** of a B2B SaaS / technology + services deal. Per clause: where to **open**, the **fallback ladder** to walk down (trade every *give* for a *get*), the **red line** you hold or escalate on, and **who signs off**. Companion to [`negotiation-playbook.md`](negotiation-playbook.md).
 >
-> **How to use:** open at the Opening; walk *down* the ladder only as far as the deal needs; never give a rung away without taking its *get*; escalate the moment an ask crosses an **Escalate when** trigger; never cross a **Red line** without the named approver. Entries marked **†** are first-pass drafts (the second review pass was interrupted) — sound, but provisional.
+> **How to use:** open at the Opening; walk *down* the ladder only as far as the deal needs; never give a rung away without taking its *get*; escalate the moment an ask crosses an **Escalate when** trigger; never cross a **Red line** without the named approver. All 25 entries have been through a two-pass review (deal-counsel draft + skeptical deal-desk/GC check).
 >
 > *General market-practice reference, not legal advice — adapt with counsel.*
 
@@ -412,34 +412,34 @@
 ## V. Operational / Boilerplate
 
 
-### 14. Insurance †
+### 14. Insurance
 
-**Opening.** Put a short, "customary"-style clause on our paper: "Each party shall maintain, at its own expense, commercially reasonable insurance customary for its business, including Commercial General Liability of $1M per occurrence / $2M aggregate, and Technology Errors & Omissions / Cyber liability on a combined/blended limit of $1–2M.
+**Opening.** On our paper, put a short, customary-style clause: "Each party shall maintain, at its own expense, commercially reasonable insurance customary for its business, including Commercial General Liability of $1M per occurrence / $2M aggregate, and Technology Errors & Omissions / Cyber liability of $1-2M.
 
 
 **Fallback ladder:**
 
-1. **Give** Unblend into a standalone insurance schedule with named lines and modestly raised limits: CGL $1M/$2M, Tech E&O $2M, Cyber $3M, A-/A.M. → **Get** Customer confirms insurance stays expressly DECOUPLED from the liability cap (no 'insurance does not limit liability,' no cyber-floors-the-super-cap…
-2. **Give** Raise Cyber to a $5M floor (and to $5–10M if Customer is in a regulated vertical — healthcare/PHI, financial, payment-card) and add a… → **Get** Drop additional-insured on the claims-made Cyber/E&O forms entirely (AIs erode the shared limit and most carriers won't endorse them cleanly), and…
-3. **Give** Customer named as Additional Insured on the CGL line only, via standard ISO endorsement (CG 20 10 / CG 20 37), plus primary-and-non-contributory (CG… → **Get** AI/primary-noncontributory/waiver is strictly limited to CGL — never E&O or Cyber. We provide the actual endorsement, not a redrafted bespoke one.
-4. **Give** We contractually owe 30-day advance written notice of cancellation or material reduction (10 days for non-payment), and provide COI evidencing the… → **Get** Notice obligation is 'to the extent we receive it from our carrier / commercially reasonable efforts' framing is replaced only for the notice timing…
-5. **Give** Accept a narrow, mutual 'insurance is in addition to and does not limit either party's liability or obligations' acknowledgment, AND a Self-Insured… → **Get** This acknowledgment stays severed from the liability cap and the indemnity — it confirms coverage exists alongside the cap, it does NOT raise or…
+1. **Give** Customer named as Additional Insured on the CGL line only, via standard ISO endorsement (CG 20 10 / CG 20 37), plus primary-and-non-contributory (CG… → **Get** AI / primary-non-contributory / waiver are strictly limited to CGL - never E&O or Cyber.
+2. **Give** We contractually owe 30-day advance written notice of cancellation or material reduction (10 days for non-payment), and provide a COI evidencing the… → **Get** The cancellation covenant is satisfied by maintaining comparable replacement coverage if a policy changes (the executed-MSA replacement-coverage…
+3. **Give** Unblend into a standalone insurance schedule with named lines and modestly raised limits: CGL $1M/$2M, Tech E&O $2M, Cyber $3M, carriers rated A.M. → **Get** Customer confirms insurance stays expressly DECOUPLED from the liability cap (no 'insurance limits define liability,' no cyber-floors-the-super-cap…
+4. **Give** Raise Cyber to a $5M floor (and $5-10M if Customer is in a regulated vertical - healthcare/PHI, financial, payment-card) and add a… → **Get** No additional-insured on the claims-made Cyber/E&O forms; Customer accepts the limits as 'minimum limits, not a representation of available coverage'…
+5. **Give** For a strategic / regulated account only: tie the data-breach super-cap floor to the Cyber limit (super-cap = greater of 2x fees or the carried Cyber… → **Get** TRUE FLOOR - requires the cyber limit and super-cap to MATCH (we will not floor the super-cap above the coverage we actually carry);
 
 
-🛑 **Red line.** Do NOT agree to any of the following: (1) Additional-insured status on the claims-made Cyber or Tech E&O policies — carriers generally won't endorse it cleanly, it dilutes a shared aggregate limit across customers, and it can void our own coverage; this is an insurability limit, not a negotiating posture.
+🛑 **Red line.** Do NOT agree to any of the following; cross one and we walk or hard-escalate. (1) Additional-insured status on the claims-made Cyber or Tech E&O policies. Our position: AI on those lines dilutes a shared aggregate limit across our customer base and can complicate our own coverage, and a meaningful share of cyber carriers will not endorse…
 
-⬆️ **Escalate when.** Escalate before agreeing when the customer asks for: (a) any AI/primary-noncontributory/waiver-of-subrogation on the Cyber or E&O lines, OR cyber limits above $5M (or above $10M for regulated verticals) — CISO/Risk + CFO sign-off, because…
+⬆️ **Escalate when.** Route as follows. RED-LINE / WALK path (not an approval): any request for additional-insured, primary-non-contributory, or waiver of subrogation on the Cyber or E&O lines - this is a vendor floor;
 
 
 **Talking points:**
 
-- Our limits are minimums and floors, not a cap on available coverage or a representation of our total tower — you get the benefit of whatever coverage actually responds.
-- Additional-insured status on a claims-made Cyber or E&O policy is a coverage problem for both of us: it draws down a shared aggregate limit across our whole customer base, so a…
-- Insurance and the liability cap do different jobs: insurance funds the indemnities and the data-breach exposure; the cap allocates residual risk.
-- Cancellation notice: we'll commit to 30 days' advance written notice and to maintaining comparable replacement coverage if a policy changes — that's the enforceable promise.
+- Our stated limits are minimums and floors, not a cap on available coverage or a representation of our total tower - you get the benefit of whatever coverage actually responds.
+- We're glad to confirm that carrying insurance doesn't relieve either of us of our obligations under the agreement - that's standard and mutual.
+- Additional-insured status on a claims-made Cyber or E&O policy draws down a shared aggregate limit across our whole customer base, so a large claim by another customer could leave…
+- On CGL we can move quickly: the endorsements you're asking for - CG 20 10 / CG 20 37 for ongoing and completed operations, CG 20 01 for primary-and-non-contributory, plus waiver…
 
 
-*Drafting:* ["State limits as 'minimum limits' that 'shall not be construed as a limitation on, or representation of, the limits of [Vendor]'s liability or available coverage' — and add 'satisfaction of this Section constitutes full performance of…
+*Drafting:* State limits as 'minimum limits' that 'shall not be construed as a limitation on, or representation of, the limits of Vendor's liability or available coverage,' and add 'satisfaction of this Section constitutes full performance of Vendor's…
 
 
 ### 15. Assignment & Change of Control
@@ -502,64 +502,63 @@
 *Drafting:* See the structured drafting_tips field above.
 
 
-### 17. Contractual Limitation Period for Claims †
+### 17. Contractual Limitation Period for Claims
 
-**Opening.** On our paper, put down a 1-year contractual limitation period (drop to 6 months only on self-service / clickwrap, where no human negotiates): "No action, regardless of form, arising out of or relating to this Agreement may be brought by Customer more than one (1) year after the cause of action accrued." Anchor the clock to ACCRUAL (the breach/event), not…
+**Opening.** On our paper, open with a 1-year contractual limitation period (6 months only on self-service / clickwrap, where no human negotiates): "No action, regardless of form, arising out of or relating to this Agreement may be brought by Customer more than one (1) year after the cause of action accrued." Anchor the clock to ACCRUAL in the first draft as the…
 
 
 **Fallback ladder:**
 
-1. **Give** Make the period genuinely mutual (applies to both parties' claims, not just the customer's), keeping 1 year and the accrual trigger. → **Get** Customer drops the demand to lengthen the period or move to discovery; mutuality costs us little because we sue almost exclusively for fees, which we…
-2. **Give** Keep 1 year + accrual, but carve OUT our fee/payment-collection claims so the bar never runs against our own collections. → **Get** Frame the carve-out as 'reciprocal' by also excluding the customer's payment-dispute and refund claims;
-3. **Give** Move the trigger from pure accrual to a HYBRID: the clock starts on accrual but tolls until the customer 'knew or reasonably should have known' of… → **Get** In exchange, hold the headline period at 1 year from that discovery point and get the customer to accept the 2-year outside backstop so we still have…
-4. **Give** Concede the standard carve-outs the customer's counsel always wins: IP indemnity, fraud/willful misconduct, breach of confidentiality / data-security… → **Get** In return, the limitation period stays at 1 year (discovery-triggered, 2-year longstop) for the bulk of ordinary contract/warranty/service claims —…
-5. **Give** Stretch the headline period to 2 years (still discovery-triggered, carve-outs in place) and add 'expiration of a survival period does not shorten… → **Get** Get the customer to keep an EXPRESS contractual limitation period at all (a clean number we can plead) rather than reverting to the open statute, and…
+1. **Give** Make the period genuinely mutual (applies to both parties' claims, not just Customer's), keeping 1 year and the accrual trigger. → **Get** Customer drops the demand to lengthen the period or move to a discovery trigger.
+2. **Give** Move the trigger from pure accrual to a HYBRID: clock starts on accrual but tolls until Customer 'knew or reasonably should have known' of the claim… → **Get** Hold the headline period at 1 year from the discovery point and secure Customer's acceptance of the 2-year outside backstop so we keep a finite tail…
+3. **Give** Concede the standard carve-outs sophisticated counsel always wins: IP indemnity, fraud/willful misconduct, breach of confidentiality / data-security… → **Get** In return, the 1-year (discovery-triggered, 2-year longstop) period holds for the bulk of ordinary contract / warranty / service-level claims, and…
+4. **Give** Stretch the headline period to 2 years (still discovery-triggered, carve-outs in place), and align it with the claim-notice / dispute-notice deadline… → **Get** Keep an EXPRESS contractual period at all (a clean number we can plead) rather than reverting to the open statute, and keep the 2-year longstop on…
 
 
-🛑 **Red line.** Do not agree to language that effectively gives us UNLIMITED time exposure on core service/warranty claims with no finite outside backstop AND no liability cap interaction — e.g., a pure discovery trigger with no longstop, applied to all claims, combined with "this period shall not be shorter than any applicable statute." That recreates…
+🛑 **Red line.** Two hard lines. (1) No open-ended tail on core service/warranty claims: do not accept a pure discovery trigger with NO outside longstop applied to ordinary claims (especially combined with "this period shall not be shorter than any applicable statute").
 
-⬆️ **Escalate when.** Sub-floor or void-risk terms (shortening below UCC 2-725's one-year goods floor, any shortening under Louisiana or other anti-shortening governing law, or barring non-waivable statutory claims) require GC sign-off — these are…
+⬆️ **Escalate when.** Three tiers, escalate UP not by default — the standard ladder through 2-year + standard carve-outs + 2-year longstop is pre-approved and needs NO escalation.
 
 
 **Talking points:**
 
-- A clearly-worded, reasonable contractual shortening is routinely enforced — New York CPLR 201 permits parties to agree to a shorter period (Kassner v.
-- A finite limitation period benefits BOTH parties: it lets each side close its books, release reserves, and avoid stale-evidence disputes years after the facts.
-- This is a SaaS subscription, not a perpetual-defect product. You are continuously monitoring the service month to month;
-- We are not trying to time-bar the things that actually matter to you: IP indemnity, fraud, confidentiality and data-security breaches, and indemnification all sit OUTSIDE the…
+- A clearly worded, reasonable contractual shortening is enforceable in writing — New York CPLR 201 permits it and Kassner & Co. v. City of New York upholds shortened periods.
+- A finite limitation period benefits BOTH parties: each side can close its books, release reserves, and avoid stale-evidence disputes years after the facts.
+- This is a SaaS subscription, not a perpetual-defect product. You monitor the service month to month, so a genuine claim you could not reasonably find within a year of an active…
+- We are not time-barring the things that matter most to you: IP indemnity, fraud, confidentiality and data-security breaches, and indemnification all sit OUTSIDE the period and run…
 
 
-*Drafting:* ["Anchor to 'accrual' in the first draft, not 'discovery' — accrual silently starts (and can expire) the clock before the customer knows of the claim.
+*Drafting:* Anchor to 'accrual' in the first draft but treat the discovery trigger + hard longstop as a planned concession, not a defeat — always pair any discovery trigger with 'but in no event more than two (2) years after the act or omission giving…
 
 
-### 18. Force Majeure †
+### 18. Force Majeure
 
 **Opening.** On our paper: a clause that reads mutual but is engineered to favor us as the performing party. (1) Excused-performance trigger covering any event "beyond the affected party's reasonable control," followed by a broad enumerated list (acts of God, war/terrorism, civil unrest, fire/flood/earthquake/severe weather, epidemic/pandemic and government…
 
 
 **Fallback ladder:**
 
-1. **Give** Confirm the clause is genuinely mutual (symmetric trigger and relief for both parties). → **Get** Free concession — costs us nothing because the customer's only real performance obligation is to pay, and we hold the line that payment is never…
+1. **Give** Confirm the clause is genuinely mutual (symmetric trigger and relief for both parties). → **Get** Costs us nothing: the customer's only real performance obligation is to pay, and payment is never excused (rung 2).
 2. **Give** Narrow the catch-all from open-ended to ejusdem generis: 'any other cause of a similar kind beyond the affected party's reasonable control' and drop… → **Get** Customer keeps the full enumerated list intact — including the load-bearing named events (pandemic/government order, and especially…
 3. **Give** Add firm mitigation: 'use commercially reasonable efforts to mitigate, work around, and resume performance' plus notice 'as soon as reasonably… → **Get** We keep the cloud/third-party-supplier event in the list and keep DR optional at this rung.
-4. **Give** Reframe payment: customer concedes that payment is NOT legally excused, but for prospective SaaS subscription fees covering a service we are not… → **Get** We preserve the US baseline that FM never discharges the debt (protects already-earned fees, one-time/implementation fees, and committed minimums)…
+4. **Give** Reframe payment: customer concedes that payment is NOT legally excused, but for prospective SaaS subscription fees covering a service we are not… → **Get** We preserve the baseline that FM does not discharge the debt (protects already-earned fees, one-time/implementation fees, and committed minimums)…
 5. **Give** Carve disaster recovery / business continuity OUT of FM relief: an event we are contractually or per our SOC 2 / published DR commitments required to… → **Get** Only offer this once the customer pushes hard on cloud-dependency risk. We get to keep true catastrophic / wide-area events (war, genuine…
 
 
 🛑 **Red line.** Two positions we do not cross. (1) FM must NEVER excuse, suspend, or cap (a) the confidentiality/data-security obligations, (b) the data-breach notification and incident-response duties, or (c) the indemnification obligations of either party — a vendor that can stop protecting customer data because 'a pandemic happened' is uninsurable…
 
-⬆️ **Escalate when.** Escalate before agreeing to any of: (1) cash refund/clawback of EARNED or prepaid one-time fees, or any FM relief that touches the payment-not-excused baseline beyond a prospective service credit — CFO sign-off.
+⬆️ **Escalate when.** Escalate before agreeing to any of: (1) Cash refund/clawback of EARNED, committed-minimum, or prepaid one-time fees, or any FM relief that touches the payment-not-excused baseline beyond a prospective service credit — CFO sign-off.
 
 
 **Talking points:**
 
-- 'No excuse for payment' is simply the US baseline, not a vendor power grab — under UCC and common law a force majeure event does not discharge a buyer's payment obligation;
-- Real executed agreements carve payment out of FM relief expressly — e.g., language that relieves a party of its obligations during a force majeure event 'other than a failure to…
+- 'No excuse for payment' tracks the common-law default, not a vendor power grab. Force majeure and impracticability excuse performance that has become impossible or commercially…
+- Real executed SaaS agreements carve payment out of FM relief expressly — e.g., language excusing a party's obligations during a force majeure event 'other than a failure to pay…
 - Mutuality cuts both ways and protects you: if your data center or staff are hit by the same hurricane or outage, the symmetric clause relieves you too.
 - On cloud/third-party failure: we run on the same hyperscale infrastructure (AWS/Azure/GCP) you would use directly.
 
 
-*Drafting:* ["Make it mutual on its face but asymmetric in effect: the only obligation the clause excuses for the customer is timely cooperation;
+*Drafting:* Make it mutual on its face but asymmetric in effect: the only obligation the clause excuses for the customer is timely cooperation;
 
 
 ### 19. Audit / Compliance-Verification Rights
@@ -592,37 +591,37 @@
 *Drafting:* ["Define the audit-cost cost-shift as triggered by 'under-licensing of more than five percent (5%) of fees properly due for the audited period' — basing it on a percentage of fees (not a flat dollar amount) keeps the trigger scaling with…
 
 
-### 20. Publicity & Use of Name/Logo †
+### 20. Publicity & Use of Name/Logo
 
-**Opening.** On our paper, lead with a broad, royalty-free, perpetual, self-executing grant: "Customer grants Vendor a non-exclusive, worldwide, royalty-free license to use Customer's name, logo, and trademarks (a) to identify Customer as a customer in Vendor's customer lists, website, investor and sales materials, and (b) to develop and publish a case study, quote, and…
+**Opening.** On our paper, lead with a broad, royalty-free, self-executing grant for the low-sensitivity items only: "Customer grants Vendor a non-exclusive, worldwide, royalty-free license to use Customer's name and logo (a) to identify Customer as a customer in Vendor's customer lists, on Vendor's website, and in sales and investor materials, and (b) on a per-instance…
 
 
 **Fallback ladder:**
 
-1. **Give** Split the grant into two channels and drop the request for any marketing credit / mandatory reference quota — keep the bare logo + customer-list… → **Get** Customer accepts the logo/list right survives as long as Customer remains a paying customer, with no per-instance approval for that channel.
-2. **Give** Subject even the bare logo/list use to Customer's brand guidelines and a 'no implied endorsement / no disparagement' statement, and add that we'll… → **Get** Customer keeps the logo right standing (not per-instance-consent) and agrees the cease obligation is prospective only — we are not required to…
-3. **Give** Move PR / case studies / attributed quotes to per-instance prior written consent, 'not to be unreasonably withheld, conditioned, or delayed,' and… → **Get** A defined response window — Customer responds within 10 business days; pair the consent standard with an escalation-on-silence path (a written…
-4. **Give** Drop true 'deemed approval' on silence; replace with: if Customer does not respond within 10 business days, the request escalates to a named Customer… → **Get** Tighten the window to 5-7 business days for pre-approved formats (logo on a slide, a one-line list entry) and reserve the 10-day track for net-new…
-5. **Give** Recharacterize the whole thing as a revocable trademark license — Customer may revoke prospectively on notice; → **Get** Carve out from both the revocation and the removal obligation: (i) materials already distributed or printed;
+1. **Give** Drop the marketing-credit ask and any mandatory reference/quota obligation entirely; → **Get** Customer accepts the logo/list right is standing (no per-instance approval for that channel) and that PR, case studies, and attributed quotes move to…
+2. **Give** Subject even the bare logo/list use to Customer's brand guidelines, an express 'no implied endorsement' statement, and a 'no disparagement of either… → **Get** Customer keeps the logo right standing (not per-instance consent) and agrees the cease obligation is prospective only — no obligation to recall…
+3. **Give** Make the entire publicity clause mutual, and move PR / case studies / attributed quotes to per-instance prior written consent 'not to be unreasonably… → **Get** A defined response window — Customer responds within 10 business days — and an escalation-on-silence path (written reminder, then escalation to a…
+4. **Give** If Customer insists on consent for the logo itself, concede a reasonable-consent standard for logo use ('not to be unreasonably withheld… → **Get** In exchange for moving the logo behind consent: (i) a standing pre-approval for Vendor to reference Customer as a customer ORALLY to analysts and…
+5. **Give** Recharacterize the whole thing as a revocable trademark license — Customer may revoke prospectively on notice; → **Get** Carve out from BOTH the revocation and the removal obligation: (i) materials already distributed or printed;
 
 
-🛑 **Red line.** Do not agree to (a) retroactive recall/destruction of already-distributed or published materials, (b) revocation that reaches consent already given for a specific published asset (a live case study or issued press release), or (c) any indemnity or uncapped/cap-excluded liability tied to publicity/trademark use, or liquidated damages for…
+🛑 **Red line.** Do not agree to (a) retroactive recall/destruction of already-distributed or published materials; (b) revocation that reaches consent already given for a specific published asset (a live case study or issued press release); (c) loss of the right to reference Customer internally and to prospects/analysts UNDER NDA;
 
-⬆️ **Escalate when.** Any of the following requires sign-off before agreeing: (1) Publicity/trademark breach carved OUT of the liability cap, or any indemnity, liquidated damages, or specific-performance/injunction-with-fee-shifting remedy attached -> GC (this…
+⬆️ **Escalate when.** Any of the following requires sign-off BEFORE agreeing: (1) Publicity/trademark breach carved OUT of the liability cap, OR any indemnity, liquidated damages, or specific-performance/injunction-with-fee-shifting remedy attached -> GC (this…
 
 
 **Talking points:**
 
-- Bare logo/list listing carries no implied endorsement when it is governed by your brand guidelines and an express 'no endorsement' statement — and we are happy to put both in…
+- We are asking only to state a true fact — that you are a customer — governed by your brand guidelines and an express 'no implied endorsement' statement, both of which we will put…
 - We are making the clause fully mutual — the same protections you want for your brand, you get to assert against ours. This is reciprocal brand hygiene, not a one-way grab.
-- On PR, case studies, and quotes we are not asking for blanket rights — those require your prior written consent on a per-instance basis, because you supply the quote and control…
-- Consent 'not to be unreasonably withheld, conditioned, or delayed' is the market standard for this clause — your own customer agreements almost certainly use the same formulation…
+- On PR, case studies, and attributed quotes we are not asking for blanket rights — those require your prior written consent on a per-instance basis, because you supply the quote…
+- A consent standard of 'not to be unreasonably withheld, conditioned, or delayed' keeps either side from using approval as a veto while preserving your control over the message —…
 
 
-*Drafting:* ["Define the standing right against 'Customer's name and logo in Vendor's customer lists and identification of Customer as a customer,' and put PR/case studies/quotes in a SEPARATE sentence with its own consent standard — so a customer…
+*Drafting:* Define the standing right against 'Customer's name and logo in Vendor's customer lists and identification of Customer as a customer,' and put PR/case studies/quotes in a SEPARATE sentence with its own consent standard — so a customer…
 
 
-### 21. Acceptance / Acceptance Testing †
+### 21. Acceptance / Acceptance Testing
 
 **Opening.** On our paper, acceptance is a formality, not a gate. Draft: Deliverables/Services are deemed accepted if they "substantially conform to Vendor's then-current Documentation/Specifications." Customer has a 5-business-day inspection window from delivery.
 
@@ -631,145 +630,145 @@
 
 1. **Give** Tighten the standard from 'substantially conforms' to 'conforms in all material respects to the Specifications,' and agree the… → **Get** The criteria must be the criteria existing/agreed BEFORE testing begins, frozen at SOW signature or by a dated Acceptance Test Plan — no unilateral…
 2. **Give** Extend the inspection/testing window from 5 to 15 business days (offer 30 only for genuinely complex/SI deliverables). → **Get** Keep deemed-acceptance on silence, and keep production use as a deemed-acceptance trigger.
-3. **Give** Gate deemed-acceptance on a written reminder: if Customer is silent at window's end, Vendor sends a notice and Customer gets a short tail (5 business… → **Get** Production use OTHER than agreed pilot/UAT/DR testing still = immediate deemed acceptance, expressly carved into the clause.
-4. **Give** Replace 'commercially reasonable cure' with a structured reject-and-cure loop: on a conforming rejection notice (specifying the failed criteria)… → **Get** (1) A conforming rejection must identify the specific criterion failed; defects Customer doesn't call out are waived.
-5. **Give** Add a failure backstop after the capped cure cycles fail: Customer may elect to (a) extend cure, (b) accept with an equitable, pre-agreed price… → **Get** This menu is Customer's SOLE AND EXCLUSIVE remedy for non-acceptance, expressly displacing UCC 2-719(2) failure-of-essential-purpose and any…
+3. **Give** Gate deemed-acceptance on a written reminder: if Customer is silent at window's end, Vendor sends a notice and Customer gets a short tail (5 business… → **Get** Production use OTHER than agreed pilot/UAT/DR/training still = immediate deemed acceptance, expressly carved into the clause.
+4. **Give** Replace 'commercially reasonable cure' with a structured reject-and-cure loop: on a conforming rejection notice (specifying the failed criteria)… → **Get** (1) A conforming rejection must identify the specific criterion failed; defects Customer doesn't call out are waived for that cycle.
+5. **Give** Add a failure backstop after the capped cure cycles fail: Customer may elect to (a) extend cure, (b) accept with an equitable, pre-agreed price… → **Get** This menu is Customer's SOLE AND EXCLUSIVE remedy for non-acceptance, expressly excluding any consequential/incidental damages and any right of…
 
 
-🛑 **Red line.** Do not agree to: (1) open-ended acceptance with NO deemed-acceptance mechanism and no outer date — revenue recognition under ASC 606 needs a determinable point of control transfer, and indefinite unfunded acceptance risk means we carry a delivered, un-paid asset on the books with no certainty it ever converts;
+🛑 **Red line.** Do not agree to: (1) open-ended acceptance with NO deemed-acceptance mechanism and no outer date — we need a determinable point of control transfer (the basis for recognizing revenue and for closing out the deliverable), and indefinite unfunded acceptance risk means we carry a delivered, unpaid asset with no certainty it converts;
 
-⬆️ **Escalate when.** Escalate to GC + CFO jointly if the customer demands either (a) a refund-the-entire-contract / cross-Deliverable clawback on acceptance failure, (b) deletion of the sole-remedy + UCC 2-719(2) displacement language (i.e., surviving…
+⬆️ **Escalate when.** Escalate to GC (legal items): deletion of the sole-and-exclusive-remedy + consequential-damages waiver (i.e., surviving rejection/revocation/cover exposure), or any acceptance-failure remedy argued to sit outside the liability cap or feed…
 
 
 **Talking points:**
 
-- 'Objective criteria agreed in writing before testing protects both of us — you get certainty the product will be measured against what you actually need, and we get certainty…
-- 'Deemed acceptance isn't a trick — it's the rev-rec discipline our auditors require under ASC 606. We need a determinable acceptance date to recognize revenue.
+- 'Objective criteria agreed in writing before testing protects both of us — you get certainty the product is measured against what you actually specified, and we get certainty…
+- 'A time-bound acceptance date isn't a trick — it gives both sides a clean, determinable point at which the deliverable is done, which is what lets us close out the milestone and…
 - 'Production use as an acceptance trigger is simple fairness: if the deliverable is good enough to run your live business on, it's good enough to be accepted.
 - 'The two-cycle cure loop with a reset clock is a real, enforceable quality gate — you reject with specifics, we fix, you re-test from zero.
 
 
-*Drafting:* ["Anchor acceptance to 'the Specifications' as a defined term that points to Vendor's Documentation/an agreed Acceptance Test Plan — never let an undefined 'requirements' or 'Customer's expectations' creep in.
+*Drafting:* Anchor acceptance to 'the Specifications' as a defined term pointing to Vendor's Documentation/an agreed Acceptance Test Plan — never let undefined 'requirements' or 'Customer's expectations' creep in;
 
 
-### 22. Compliance with Laws / Anti-Corruption †
+### 22. Compliance with Laws / Anti-Corruption
 
-**Opening.** On our paper, lead with a thin, one-way frame and let the customer build it up. Draft: (1) a single mutual-sounding-but-bare line — "Each party shall comply with all laws applicable to it in the performance of this Agreement" — with NO statute names, no program covenant, no audit, no flow-down;
+**Opening.** On our paper, lead thin and let the customer build it up. Draft: (1) a single bare line — "Each party shall comply with all laws applicable to it in its performance of this Agreement" (note "applicable to it in ITS performance," so we do not inherit the customer's industry-specific regulatory burden);
 
 
 **Fallback ladder:**
 
-1. **Give** Make the bare compliance line genuinely mutual and add a clean, mutual anti-bribery representation naming both the U.S. → **Get** Strict reciprocity (customer makes the identical rep), and the clause stays inside the general 1x cap with ordinary notice-and-cure termination.
+1. **Give** Make the compliance line genuinely mutual and add a clean mutual anti-bribery representation naming the U.S. → **Get** Strict reciprocity — customer makes the identical rep — and the clause stays inside the general 1x cap with ordinary notice-and-cure termination.
 2. **Give** Convert the one-way export/sanctions clause to MUTUAL trade-controls compliance (OFAC, EAR, plus EU/UK where the customer operates) and add a mutual… → **Get** Customer accepts that trade-controls/sanctions obligations are mutual and that either party may suspend performance without liability if continued…
 3. **Give** Add an affirmative ABAC program covenant ('maintains commercially reasonable anti-corruption policies, training, and books-and-records appropriate to… → **Get** Program described as 'commercially reasonable' and 'appropriate to size and risk' (not a prescriptive checklist), flow-down is…
 4. **Give** Agree the anti-bribery and sanctions reps are CARVED OUT OF THE GENERAL 1x CAP, sitting alongside confidentiality and IP, and that a proven violation… → **Get** Termination requires a 30-day cure period for any breach that is curable (e.g., a lapsed policy, a flow-down gap);
-5. **Give** TRUE FLOOR — accept no-cure immediate termination for a proven core bribe, an officer-certification model with a narrow 'records reasonably necessary… → **Get** Audit stays a documented-suspicion, scope-limited, confidential, third-party-auditor, look-only right (NOT a roaming annual books-and-records audit);
+5. **Give** TRUE FLOOR — accept no-cure immediate termination for a proven core bribe; an officer-certification model with a narrow 'records reasonably necessary… → **Get** Audit stays a documented-suspicion, scope-limited, confidential, third-party-auditor, look-only right (NOT a roaming annual books-and-records audit);
 
 
-🛑 **Red line.** Do NOT agree to: (a) a standalone, dollar-one, uncapped anti-corruption/sanctions INDEMNITY — that is the line insurers and reserves cannot price; corruption/sanctions exposure (treble FCPA penalties, OFAC strict-liability fines into the tens of millions) is exactly the open-ended, often un-insurable tail the single cap exists to…
+🛑 **Red line.** Do NOT cross these — walk or hard-escalate. (a) A standalone dollar-one / UNCAPPED anti-corruption or sanctions INDEMNITY, or any such indemnity that runs ONE-WAY against us.
 
-⬆️ **Escalate when.** Escalate before agreeing to any of: (1) ANY anti-corruption or sanctions INDEMNITY, whether dollar-one or supercapped, or any uncapped liability head beyond the standard carve-out list — GC sign-off (and CFO if uncapped, because it hits…
+⬆️ **Escalate when.** Self-approval ceiling is RUNG 1 only — a salesperson or non-lawyer may agree mutual reps inside the cap with ordinary cure, because that is pre-cleared and verifiably true today.
 
 
 **Talking points:**
 
 - 'We're giving you the substance you actually need.' The customer's real driver is regulatory DEFENSE, not shifting money to us.
-- 'An officer's annual certification is stronger evidence than a one-off audit, and it's how SaaS does it.' A signed officer certification is a recurring, dated, attributable…
-- 'The carve-out already solves your real fear.' Pulling the anti-bribery and sanctions reps out of the general cap means a breach claim isn't limited to one year's fees — you have…
+- 'An officer's annual certification is stronger evidence than a one-off audit — and it's how SaaS does it.' A signed, dated, officer-attributable certification is a recurring…
+- 'You get real recourse without the part that's unpriceable.' Pulling the anti-bribery and sanctions reps out of the general cap means a breach claim against US isn't limited to…
 - 'Cure rights only bite on curable breaches.' We agree an actual proven bribe is no-cure and terminable immediately — that conduct can't be undone.
 
 
-*Drafting:* ["Keep knowledge/materiality qualifiers OFF the core 'has not and will not pay, offer, promise, or authorize a bribe' sentence (that's the part the customer's counsel will check and the part that's true anyway), but DO attach 'to its…
+*Drafting:* Keep knowledge/materiality qualifiers OFF the core 'has not and will not pay, offer, promise, or authorize a bribe' sentence (that's the part counsel checks and the part that's true anyway), but DO attach 'to its knowledge' and 'in all…
 
 
-### 23. Subcontracting / Personnel & Non-Solicitation †
+### 23. Subcontracting / Personnel & Non-Solicitation
 
-**Opening.** On our paper, three moves bundled into one clause: (1) Subcontracting — "Vendor may engage affiliates, contractors and subprocessors of its choosing to perform the Services; Vendor's responsibility for subcontractor performance is limited to using reasonable care in selection, and any subcontractor breach is subject to the same limitation of liability and…
+**Opening.** On our paper, three moves bundled into one clause, anchored high so the inevitable concessions land at our real target: (1) Subcontracting — "Vendor may engage affiliates, contractors and subprocessors of its choosing to perform the Services;
 
 
 **Fallback ladder:**
 
-1. **Give** Drop the carve-out that lets subcontractor breaches hide behind the cap as a separate event; → **Get** In exchange, keep unilateral discretion to ENGAGE subcontractors (no per-sub consent), and confirm that all liability — ours or a sub's — runs…
-2. **Give** Add a consent gate, but only for NEW subcontractors that will access Customer Confidential Information or personal data: 'consent not to be… → **Get** Existing/incumbent subs and all non-data-touching subs (infra, support tooling) stay pre-approved with no gate.
-3. **Give** Agree a named key-personnel list of 3–6 roles with a 6–12 month commitment, advance notice of voluntary departures, and replacements of 'equal or… → **Get** Replacements are subject to Customer approval 'not to be unreasonably withheld' with a 5-business-day deemed-approval clock;
-4. **Give** Make the non-solicitation MUTUAL and narrow it to personnel who were directly involved in the engagement (not the whole workforce), drop the duration… → **Get** Reciprocity (it now also protects us when the customer's people see our delivery team), and we keep 'solicit AND hire' rather than 'solicit only' for…
-5. **Give** Replace liquidated damages with a fixed recruiting-cost reimbursement (e.g., 25–30% of first-year base salary as an agreed pre-estimate of placement… → **Get** The clause survives as a mutual, enforceable provision everywhere it can be — the severability language is what keeps a court from blue-penciling or…
+1. **Give** Drop the 'reasonable care in selection only' carve-out and accept the near-universal standard: 'Vendor remains fully responsible and liable for the… → **Get** In exchange, keep unilateral discretion to ENGAGE subcontractors (no per-sub consent), and confirm in the same sentence that all liability — ours or…
+2. **Give** Add a consent gate, but only for NEW subcontractors that will have access to Customer Confidential Information or personal data: 'consent not to be… → **Get** Existing/incumbent subs and all non-data-touching subs (cloud infra, CDN, support tooling, offshore delivery) stay pre-approved with no gate.
+3. **Give** Agree a named key-personnel list of 3–6 roles with a 6–12 month soft commitment, advance notice of planned voluntary departures where known, and… → **Get** Involuntary attrition, illness, leave, death, and unforeseen resignation are expressly excluded from breach;
+4. **Give** Make the non-solicitation MUTUAL, scoped to personnel directly involved in the engagement (not the entire workforce), at 12 months post-termination… → **Get** Reciprocity (it now also protects our delivery team from the customer's hiring), and we hold 'solicit OR hire' for the engagement-staff subset so a…
+5. **Give** If the customer rejects 'solicit OR hire,' narrow to 'solicit only' (define 'solicit' to exclude general postings and untargeted recruiter outreach). → **Get** FLOOR: a mutual, 12-month, engagement-staff-only non-solicit ('solicit only' acceptable) with the two carve-outs, an enforceable remedy…
 
 
-🛑 **Red line.** Do not accept a per-subcontractor consent VETO over our general delivery, infrastructure or support stack (as opposed to data-touching subs), and do not accept an absolute prohibition on subcontracting.
+🛑 **Red line.** Do not accept (1) a per-subcontractor consent VETO over our general delivery, infrastructure or support stack (as distinct from data-touching subs), or an absolute prohibition on subcontracting; (2) standalone subcontractor liability carved OUTSIDE the MSA cap (a second, uncapped liability pool);
 
-⬆️ **Escalate when.** Escalate to the GC if the customer demands (a) a per-subcontractor consent veto extending beyond data-touching subs, (b) standalone subcontractor liability OUTSIDE the MSA cap (an uncapped second liability pool), or (c) any non-solicit…
+⬆️ **Escalate when.** Escalate to the GC if the customer demands (a) a per-subcontractor consent veto extending beyond data-touching subs or an outright ban on subcontracting, or (b) standalone subcontractor liability OUTSIDE the MSA cap (an uncapped second…
 
 
 **Talking points:**
 
-- 'We delegate the work, not the responsibility.' We will remain fully liable for our subcontractors as if their acts were our own — you get a single counterparty to hold…
-- A consent veto over our infrastructure and delivery subprocessors isn't something we can give any single customer — they're shared across our platform, and a one-off carve-out…
-- On personnel: we'll name and commit the key roles for 6–12 months and give you approval over replacements.
-- A one-way non-solicit only protects us; making it mutual protects you too — your people work alongside our delivery team.
+- 'We delegate the work, not the responsibility.' We remain fully liable for our subcontractors as if their acts were our own — you get one counterparty to hold accountable, which…
+- A consent veto over our infrastructure and delivery subprocessors isn't something we can give any single customer — they're shared across the platform, and a one-off carve-out…
+- On personnel: we'll name and commit the key roles for 6–12 months and give you approval over replacements with equal-or-better qualifications.
+- A one-way non-solicit only protects us; making it mutual protects you too, since your people work alongside our delivery team.
 
 
-*Drafting:* ["Define 'Subcontractor' to expressly INCLUDE affiliates and subprocessors, so the broad engagement right and the prime-liability language both clearly reach the shared platform stack rather than leaving affiliates as a contested…
+*Drafting:* Define 'Subcontractor' to expressly INCLUDE affiliates and subprocessors, so both the broad engagement right and the prime-liability language clearly reach the shared platform stack.
 
 
-### 24. Data Portability, Return & Transition / Escrow †
+### 24. Data Portability, Return & Transition / Escrow
 
 **Opening.** On our paper, open narrow and self-help on all four sub-issues. (1) Return/export: Customer may self-serve export its data via the standard in-product export during the subscription term; on termination, Customer has a 30-day window to export, after which Vendor may delete.
 
 
 **Fallback ladder:**
 
-1. **Give** Name the export format and make it free: machine-readable CSV/JSON, or a documented API plus the data schema/dictionary, for Customer Data at no… → **Get** 'Normal volume' ceiling stays numeric and Vendor-defined; bulk/full-history extracts or repeated re-exports above the ceiling billed at the PS rate…
+1. **Give** Name the export format and make it free: machine-readable CSV/JSON, or a documented export endpoint plus the data schema/dictionary, for Customer… → **Get** 'Normal volume' ceiling stays numeric and Vendor-defined; bulk/full-history extracts or repeated re-exports above the ceiling billed at the PS rate…
 2. **Give** Broaden 'Customer Data' to include Customer-supplied attachments, and Customer-authored configuration, plus an export of activity/audit logs… → **Get** Hard line preserved in the definition: usage/telemetry, derived, aggregated, benchmarked, de-identified, and any model-training data remain Vendor IP…
-3. **Give** Extend the post-termination export window to 60 days, and add a 'retain-until-export' commitment: we will not delete Customer Data during the window… → **Get** Window applies only if Customer's account is paid current (no export assistance while fees are in dispute/arrears).
+3. **Give** Extend the post-termination export window to 60 days and commit not to delete Customer Data during the window. → **Get** The fixed window is the hard backstop — phrase as 'until the earlier of export completion or expiry of the Export Period,' never 'until Customer…
 4. **Give** Provide transition assistance under a rate card whose rates are locked at signing for the duration of the term (so the customer is not exposed to a… → **Get** Assistance is scoped and capped (defined deliverables: one standard-format export, schema/data-dictionary handover, up to N hours of migration Q&A) —…
 5. **Give** On termination, certify deletion of Customer Data in writing within 30 days of the window closing. → **Get** Standard carve-outs survive: (i) data in routine backups deleted on the ordinary backup-rotation cycle rather than on demand;
 
 
-🛑 **Red line.** Do not agree to (a) return or escrow of usage/derived/aggregated/de-identified/model-training data, or any commitment that lets the customer extract or replicate the platform, analytics, benchmarks, or models — that is the company's core IP and the asset base across the entire customer install base;
+🛑 **Red line.** Do not agree to (a) return, escrow, or audit of usage/derived/aggregated/de-identified/model-training data, or any commitment that lets the customer extract or replicate the platform, analytics, benchmarks, or models — that is the company's core IP and the asset base across the entire install base;
 
-⬆️ **Escalate when.** Escalate for sign-off when the customer asks to cross a red line or materially re-prices the deal: (1) any return/escrow of derived, aggregated, de-identified, usage, or model-training data, or any audit/inspection of those datasets — GC +…
+⬆️ **Escalate when.** Deal Desk / junior counsel may sign WITHIN the ladder, including: the free numeric-ceiling export (rung 1), the broadened Customer-Data definition that preserves the IP carve-out (rung 2), the 60-day window with the fixed-backstop…
 
 
 **Talking points:**
 
-- 'We're not holding your data hostage — you can self-serve export it in machine-readable CSV/JSON or via our documented API and schema, throughout the term and for 60 days after.
-- 'A signed rate card locked at signing removes the only real exit risk that matters — being charged a captive price at the worst moment.
+- 'We're not holding your data hostage — you can self-serve export it in machine-readable CSV/JSON or via our documented export endpoint and schema, throughout the term and for 60…
+- 'A rate card locked at signing removes the only real exit risk that matters — being charged a captive price at the worst moment.
 - 'Raw data comes back; analytics, benchmarks, and models stay ours. Those derived datasets are built from the whole customer base, not your records alone — returning them would…
-- 'Source-code escrow is theatre for SaaS — even if you held the code, you'd have no servers, data pipeline, secrets, or ops to run it.
+- 'On escrow: code alone won't run our service — you'd have no servers, data pipeline, secrets, or ops.
 
 
-*Drafting:* ["Define 'Customer Data' affirmatively and narrowly ('data Customer or its Users submit to the Service'), then add an express exclusion sentence: 'Customer Data does not include Usage Data, Aggregated Data, De-identified Data, or any data…
+*Drafting:* Define 'Customer Data' affirmatively and narrowly ('data Customer or its Users submit to the Service'), then add an express exclusion: 'Customer Data does not include Usage Data, Aggregated Data, De-identified Data, or any data derived…
 
 
-### 25. Notices, Entire Agreement & Order-of-Precedence †
+### 25. Notices, Entire Agreement & Order-of-Precedence
 
-**Opening.** Put all three mechanics on our paper, ranked our way. (1) ORDER OF PRECEDENCE — "In the event of conflict, the following control in descending order: (a) the Order Form, (b) the online terms at [vendor.com/terms] as updated from time to time, (c) this MSA, (d) the DPA, (e) any SOW." This floats sales-drafted Order Forms and our unilaterally-updatable URL…
+**Opening.** Put all three mechanics on our paper, ranked our way, as the anchor. (1) ORDER OF PRECEDENCE — "In the event of conflict, the following control in descending order: (a) the Order Form, (b) the online terms at [vendor.com/terms] as updated from time to time, (c) this MSA, (d) the DPA, (e) any SOW." This floats sales-drafted Order Forms and our…
 
 
 **Fallback ladder:**
 
-1. **Give** PRECEDENCE: flip to 'MSA controls on all legal terms; Order Form/SOW controls only on commercial terms (fees, quantities, term length, named… → **Get** Keep the Order Form on top for everything commercial, and require that ANY override of an MSA legal term be (i) by express reference to the specific…
-2. **Give** URL/ONLINE TERMS: pin the incorporated online terms to a specific dated version ('the terms at [URL] as of the Order Form Effective Date') and drop… → **Get** Reserve the right to update online terms prospectively at renewal, and keep unilateral update rights for the AUP/security-and-privacy docs and any…
-3. **Give** NOTICES — split by type. Email stays valid for ORDINARY notices (routine, support, general comms). → **Get** Strict reciprocity — the same elevated method binds the customer's notices to us, so they cannot effect termination-for-breach by a buried email…
-4. **Give** ENTIRE AGREEMENT — add the fraud carve-out ('nothing herein limits liability for fraud or fraudulent misrepresentation') and expressly preserve the… → **Get** Keep the integration clause and no-oral-modification intact, and narrow the non-reliance survivor to bar only claims for NEGLIGENT or INNOCENT…
-5. **Give** DEEMED-RECEIPT / NON-RELIANCE FINAL TRIM (large or regulated buyer only): accept that operative notices are deemed received only on actual documented… → **Get** This is the floor for boilerplate. In exchange, hold the integration clause, the signed-writing amendment requirement, the section-specific override…
+1. **Give** PRECEDENCE: flip to 'the MSA controls on all legal terms; the Order Form/SOW controls only on commercial terms (fees, quantities, term length, named… → **Get** Keep the Order Form on top for everything commercial, and require that ANY override of an MSA legal term be (i) by express reference to the specific…
+2. **Give** URL/ONLINE TERMS: pin the incorporated online terms to a specific dated version ('the terms at [URL] as of the Order Form Effective Date') and drop… → **Get** Reserve the right to update online terms prospectively at renewal, and keep unilateral update rights ONLY for the AUP and the security/privacy docs…
+3. **Give** NOTICES — split by type and lead with the market-standard electronic landing. Email stays valid for ORDINARY notices. → **Get** Strict reciprocity — the same confirmed-delivery method binds the customer's notices to us, so they cannot effect a termination-for-breach by a…
+4. **Give** NOTICES — physical-delivery fallback for a counterparty that insists: accept that OPERATIVE notices may also be given by nationally-recognized… → **Get** Reciprocity holds, and email-with-confirmation remains an independently sufficient operative method alongside the physical option (so we are never…
+5. **Give** ENTIRE AGREEMENT — add the fraud carve-out ('nothing in this Agreement limits or excludes liability for fraud or fraudulent misrepresentation') and… → **Get** Keep the integration clause and no-oral-modification intact, and keep the non-reliance clause but draft it SPECIFICALLY — the parties disclaim…
 
 
-🛑 **Red line.** Do NOT agree to either of these: (1) leaving the Order Form / customer PO on top of ALL terms (legal + commercial) without the express-section-reference-plus-signature override gate.
+🛑 **Red line.** Two hills to die on (walk or hard-escalate). (1) NO SILENT OVERRIDE OF LEGAL TERMS: do not accept Order Form / customer-PO precedence over MSA legal terms (cap, IP ownership, indemnity scope) without the override gate — i.e., any change to a legal term must cite the specific MSA section and be signed by both parties.
 
-⬆️ **Escalate when.** Escalate to the GC (Legal) for sign-off when the customer demands EITHER: (a) Order Form / customer-PO precedence over MSA legal terms WITHOUT the express-section-reference-plus-signature override gate, or any deletion of the fraud…
+⬆️ **Escalate when.** Deal lead / deal desk handles WITHOUT escalation: adding the fraud carve-out, making non-reliance mutual, pinning online terms to a dated version, the MSA-controls-on-legal-terms flip, the section-reference override gate, and any notices…
 
 
 **Talking points:**
 
-- 'MSA-controls-on-legal-terms' protects YOU as much as us. If a sales-drafted Order Form floated over everything, either side's junior staff could bury a one-sided term in an…
-- Pinning the online terms to a dated version is a reasonable ask and we'll do it for the committed term.
+- 'MSA-controls-on-legal-terms' protects YOU as much as us. If a sales-drafted Order Form floated over everything, either side's junior staff could bury a one-sided term in a…
+- Pinning the online terms to a dated version is reasonable and we'll do it for the committed term.
 - On notices: courts construe operative notices strictly, so a defective termination or breach notice can be held INEFFECTIVE.
-- The fraud carve-out is not a concession we're 'giving' — it's mandatory. Neither of us can contract out of our own fraud under US law (and specifically under New York and Delaware…
+- The fraud carve-out is not a concession we're 'giving' — it's mandatory. Neither party can contract out of its own fraud under US law, including New York and Delaware, so writing…
 
 
-*Drafting:* Quiet protections that hold without a fight: (1) Order the precedence list so the DPA outranks the MSA on DATA matters but the MSA outranks the DPA on liability/cap — split by subject matter, not a flat stack, so the DPA can't import an…
+*Drafting:* Quiet protections that hold without a fight: (1) Order the precedence list by SUBJECT MATTER, not a flat stack — the DPA outranks the MSA on data-protection matters, but the MSA outranks the DPA on liability/cap — so the DPA can't import…
 
 
 ---
@@ -791,18 +790,18 @@
 | 11 | Term & Auto-Renewal (Evergreen) | Escalate before agreeing to any of: (1) Opt-in / affirmative-renewal in place of auto-renewal, OR a customer termination-for-convenience right inside the… |
 | 12 | Termination | Any customer termination-for-convenience right that waives the early-termination fee or refunds/relieves prepaid/committed fees mid-term requires VP Sales +… |
 | 13 | Service Levels (SLA) & Uptime Credits | **GC sign-off** required to: make an SLA breach a termination/breach trigger for the whole Agreement; remove the sole-and-exclusive-remedy designation; |
-| 14 | Insurance | Escalate before agreeing when the customer asks for: (a) any AI/primary-noncontributory/waiver-of-subrogation on the Cyber or E&O lines, OR cyber limits above… |
+| 14 | Insurance | Route as follows. RED-LINE / WALK path (not an approval): any request for additional-insured, primary-non-contributory, or waiver of subrogation on the Cyber… |
 | 15 | Assignment & Change of Control | Escalate to the GC (VP Sales informed) before agreeing to: (a) any customer right to make a VOLUNTARY DIRECT assignment to a [Vendor] competitor without our… |
 | 16 | Governing Law, Venue & Dispute Resolution | GC sign-off required for: (1) accepting the customer's home-state law where that jurisdiction is on our 'hostile forum' list (CA waiver/consumer issues, LA… |
-| 17 | Contractual Limitation Period for Claims | Sub-floor or void-risk terms (shortening below UCC 2-725's one-year goods floor, any shortening under Louisiana or other anti-shortening governing law, or… |
-| 18 | Force Majeure | Escalate before agreeing to any of: (1) cash refund/clawback of EARNED or prepaid one-time fees, or any FM relief that touches the payment-not-excused baseline… |
+| 17 | Contractual Limitation Period for Claims | Three tiers, escalate UP not by default — the standard ladder through 2-year + standard carve-outs + 2-year longstop is pre-approved and needs NO escalation. |
+| 18 | Force Majeure | Escalate before agreeing to any of: (1) Cash refund/clawback of EARNED, committed-minimum, or prepaid one-time fees, or any FM relief that touches the… |
 | 19 | Audit / Compliance-Verification Rights | CISO sign-off (with GC) required for ANY customer-directed or customer-conducted audit, inspection, or penetration testing of Vendor's production/multi-tenant… |
-| 20 | Publicity & Use of Name/Logo | Any of the following requires sign-off before agreeing: (1) Publicity/trademark breach carved OUT of the liability cap, or any indemnity, liquidated damages… |
-| 21 | Acceptance / Acceptance Testing | Escalate to GC + CFO jointly if the customer demands either (a) a refund-the-entire-contract / cross-Deliverable clawback on acceptance failure, (b) deletion… |
-| 22 | Compliance with Laws / Anti-Corruption | Escalate before agreeing to any of: (1) ANY anti-corruption or sanctions INDEMNITY, whether dollar-one or supercapped, or any uncapped liability head beyond… |
-| 23 | Subcontracting / Personnel & Non-Solicitation | Escalate to the GC if the customer demands (a) a per-subcontractor consent veto extending beyond data-touching subs, (b) standalone subcontractor liability… |
-| 24 | Data Portability, Return & Transition / Escrow | Escalate for sign-off when the customer asks to cross a red line or materially re-prices the deal: (1) any return/escrow of derived, aggregated, de-identified… |
-| 25 | Notices, Entire Agreement & Order-of-Precedence | Escalate to the GC (Legal) for sign-off when the customer demands EITHER: (a) Order Form / customer-PO precedence over MSA legal terms WITHOUT the… |
+| 20 | Publicity & Use of Name/Logo | Any of the following requires sign-off BEFORE agreeing: (1) Publicity/trademark breach carved OUT of the liability cap, OR any indemnity, liquidated damages… |
+| 21 | Acceptance / Acceptance Testing | Escalate to GC (legal items): deletion of the sole-and-exclusive-remedy + consequential-damages waiver (i.e., surviving rejection/revocation/cover exposure)… |
+| 22 | Compliance with Laws / Anti-Corruption | Self-approval ceiling is RUNG 1 only — a salesperson or non-lawyer may agree mutual reps inside the cap with ordinary cure, because that is pre-cleared and… |
+| 23 | Subcontracting / Personnel & Non-Solicitation | Escalate to the GC if the customer demands (a) a per-subcontractor consent veto extending beyond data-touching subs or an outright ban on subcontracting, or… |
+| 24 | Data Portability, Return & Transition / Escrow | Deal Desk / junior counsel may sign WITHIN the ladder, including: the free numeric-ceiling export (rung 1), the broadened Customer-Data definition that… |
+| 25 | Notices, Entire Agreement & Order-of-Precedence | Deal lead / deal desk handles WITHOUT escalation: adding the fraud carve-out, making non-reliance mutual, pinning online terms to a dated version, the… |
 
 ## Deal-Breaker Red Lines (quick reference)
 
@@ -821,15 +820,15 @@
 | 11 | Term & Auto-Renewal (Evergreen) | Do not agree to (a) convert auto-renewal to affirmative opt-in / opt-in re-signature ('renewal requires the customer's affirmative written election'); |
 | 12 | Termination | Do NOT grant a customer termination for convenience that refunds or relieves prepaid/committed fees mid-term, and do NOT relieve a customer of committed/accrued fees on a customer-cause termination… |
 | 13 | Service Levels (SLA) & Uptime Credits | Do NOT (a) let an SLA breach trigger a **general breach or termination of the entire Agreement**, or open the door to **uncapped or consequential damages** (lost profits, cover costs) for downtime; |
-| 14 | Insurance | Do NOT agree to any of the following: (1) Additional-insured status on the claims-made Cyber or Tech E&O policies — carriers generally won't endorse it cleanly, it dilutes a shared aggregate limit… |
+| 14 | Insurance | Do NOT agree to any of the following; cross one and we walk or hard-escalate. (1) Additional-insured status on the claims-made Cyber or Tech E&O policies. |
 | 15 | Assignment & Change of Control | Two genuine walk/hard-escalate lines: (1) We will NOT permit the customer to make a VOLUNTARY DIRECT assignment of this Agreement to a direct competitor of [Vendor] without our consent, with full… |
 | 16 | Governing Law, Venue & Dispute Resolution | Do NOT agree to the customer's own home-state law AND home-state exclusive venue COMBINED where that state is hostile to our standard risk terms — i.e., a forum that voids or narrows contractual… |
-| 17 | Contractual Limitation Period for Claims | Do not agree to language that effectively gives us UNLIMITED time exposure on core service/warranty claims with no finite outside backstop AND no liability cap interaction — e.g., a pure discovery… |
+| 17 | Contractual Limitation Period for Claims | Two hard lines. (1) No open-ended tail on core service/warranty claims: do not accept a pure discovery trigger with NO outside longstop applied to ordinary claims (especially combined with "this… |
 | 18 | Force Majeure | Two positions we do not cross. (1) FM must NEVER excuse, suspend, or cap (a) the confidentiality/data-security obligations, (b) the data-breach notification and incident-response duties, or (c) the… |
 | 19 | Audit / Compliance-Verification Rights | Do not agree to: (a) true-up at the discounted/contract rate with NO cost-shift AND no ability to recover undiscounted value for willful, knowing, or repeated overuse — conceding contract-rate… |
-| 20 | Publicity & Use of Name/Logo | Do not agree to (a) retroactive recall/destruction of already-distributed or published materials, (b) revocation that reaches consent already given for a specific published asset (a live case study… |
-| 21 | Acceptance / Acceptance Testing | Do not agree to: (1) open-ended acceptance with NO deemed-acceptance mechanism and no outer date — revenue recognition under ASC 606 needs a determinable point of control transfer, and indefinite… |
-| 22 | Compliance with Laws / Anti-Corruption | Do NOT agree to: (a) a standalone, dollar-one, uncapped anti-corruption/sanctions INDEMNITY — that is the line insurers and reserves cannot price; |
-| 23 | Subcontracting / Personnel & Non-Solicitation | Do not accept a per-subcontractor consent VETO over our general delivery, infrastructure or support stack (as opposed to data-touching subs), and do not accept an absolute prohibition on… |
-| 24 | Data Portability, Return & Transition / Escrow | Do not agree to (a) return or escrow of usage/derived/aggregated/de-identified/model-training data, or any commitment that lets the customer extract or replicate the platform, analytics, benchmarks… |
-| 25 | Notices, Entire Agreement & Order-of-Precedence | Do NOT agree to either of these: (1) leaving the Order Form / customer PO on top of ALL terms (legal + commercial) without the express-section-reference-plus-signature override gate. |
+| 20 | Publicity & Use of Name/Logo | Do not agree to (a) retroactive recall/destruction of already-distributed or published materials; (b) revocation that reaches consent already given for a specific published asset (a live case study… |
+| 21 | Acceptance / Acceptance Testing | Do not agree to: (1) open-ended acceptance with NO deemed-acceptance mechanism and no outer date — we need a determinable point of control transfer (the basis for recognizing revenue and for closing… |
+| 22 | Compliance with Laws / Anti-Corruption | Do NOT cross these — walk or hard-escalate. (a) A standalone dollar-one / UNCAPPED anti-corruption or sanctions INDEMNITY, or any such indemnity that runs ONE-WAY against us. |
+| 23 | Subcontracting / Personnel & Non-Solicitation | Do not accept (1) a per-subcontractor consent VETO over our general delivery, infrastructure or support stack (as distinct from data-touching subs), or an absolute prohibition on subcontracting; |
+| 24 | Data Portability, Return & Transition / Escrow | Do not agree to (a) return, escrow, or audit of usage/derived/aggregated/de-identified/model-training data, or any commitment that lets the customer extract or replicate the platform, analytics… |
+| 25 | Notices, Entire Agreement & Order-of-Precedence | Two hills to die on (walk or hard-escalate). (1) NO SILENT OVERRIDE OF LEGAL TERMS: do not accept Order Form / customer-PO precedence over MSA legal terms (cap, IP ownership, indemnity scope) without… |
