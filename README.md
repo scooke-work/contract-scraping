@@ -219,6 +219,10 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
   Vendors Start vs. Where Deals Land** — a 25-clause negotiation playbook: vendor opening
   positions vs. typical post-negotiation landings, with rationale and key levers (partly
   grounded in the scraped EDGAR agreements).
+- [`docs/vendor-defense-playbook.md`](docs/vendor-defense-playbook.md) — **Vendor-Defense
+  Playbook** — the vendor-side cheat-sheet for the same 25 clauses: opening ask, fallback
+  ladder (give → get), red lines, and escalation triggers, plus an approval/escalation
+  matrix and a deal-breaker red-lines quick reference.
 
 ## License
 
