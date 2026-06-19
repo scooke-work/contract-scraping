@@ -213,22 +213,20 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
 - Scraped text is for **research / knowledge** use. Respect each source's terms and
   copyright before redistributing collected content.
 
-## Reference
+## Knowledge base
 
-- [`docs/negotiation-playbook.md`](docs/negotiation-playbook.md) — **B2B Contracts: Where
-  Vendors Start vs. Where Deals Land** — a 25-clause negotiation playbook: vendor opening
-  positions vs. typical post-negotiation landings, with rationale and key levers (partly
-  grounded in the scraped EDGAR agreements).
-- [`docs/vendor-defense-playbook.md`](docs/vendor-defense-playbook.md) — **Vendor-Defense
-  Playbook** — the vendor-side cheat-sheet for the same 25 clauses: opening ask, fallback
-  ladder (give → get), red lines, and escalation triggers, plus an approval/escalation
-  matrix and a deal-breaker red-lines quick reference.
-- [`docs/persona-summaries.md`](docs/persona-summaries.md) — **Key Findings by Persona** —
-  the playbooks distilled for three audiences: Sales and Legal (vendor-side) and
-  Procurement (the buyer's mirror view).
-- [`docs/msa-review-checklist.md`](docs/msa-review-checklist.md) — **MSA Review Checklist** —
-  the full anatomy of a master services agreement with the specific sub-points to check per
-  clause (SaaS/services, plus goods/supply UCC Article 2 add-ons).
+Beyond the scraper, this repo doubles as a **curated B2B-contracts reference**. The corpus it
+builds — authoritative public law plus real executed SEC EDGAR agreements — is distilled into
+four practitioner docs under [`docs/`](docs/):
+
+| Doc | What it is |
+|-----|------------|
+| [Negotiation playbook](docs/negotiation-playbook.md) | Where vendors **start** vs. where deals **land** across 25 clauses, with rationale and key levers (partly grounded in the scraped EDGAR agreements). |
+| [Vendor-defense playbook](docs/vendor-defense-playbook.md) | The vendor-side cheat-sheet for those 25 clauses: opening ask → **fallback ladder** (give → get) → **red lines** → escalation triggers, plus an approval matrix and red-lines quick reference. |
+| [Persona summaries](docs/persona-summaries.md) | The playbooks distilled for three audiences — **Sales** & **Legal** (vendor-side) and **Procurement** (the buyer's mirror). |
+| [MSA review checklist](docs/msa-review-checklist.md) | The full **anatomy of an MSA** with per-clause sub-points to check (SaaS/services + goods/supply UCC Article 2 add-ons). |
+
+These are general market-practice references, not legal advice.
 
 ## License
 
