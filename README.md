@@ -213,6 +213,13 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
 - Scraped text is for **research / knowledge** use. Respect each source's terms and
   copyright before redistributing collected content.
 
+## Reference
+
+- [`docs/negotiation-playbook.md`](docs/negotiation-playbook.md) — **B2B Contracts: Where
+  Vendors Start vs. Where Deals Land** — a 25-clause negotiation playbook: vendor opening
+  positions vs. typical post-negotiation landings, with rationale and key levers (partly
+  grounded in the scraped EDGAR agreements).
+
 ## License
 
 MIT — see [LICENSE](LICENSE). This licenses the **scraper code**, not any content you
