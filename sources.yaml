@@ -57,7 +57,7 @@ sources:
       - "https://en.wikipedia.org/wiki/Consideration"
       - "https://en.wikipedia.org/wiki/Breach_of_contract"
       - "https://en.wikipedia.org/wiki/Indemnity"
-      - "https://en.wikipedia.org/wiki/Limitation_of_liability"
+      - "https://en.wikipedia.org/wiki/Exclusion_clause"
       - "https://en.wikipedia.org/wiki/Force_majeure"
       - "https://en.wikipedia.org/wiki/Service-level_agreement"
       - "https://en.wikipedia.org/wiki/Master_service_agreement"
@@ -87,23 +87,26 @@ sources:
     seeds:
       - "https://www.trans-lex.org/500100"
 
-  # ---- Plain-language business explanations ---------------------------
-  # Investopedia honours robots.txt; pages it disallows are skipped
-  # automatically. These are common B2B contract concepts.
-  - name: "Investopedia"
-    category: "business-explainer"
-    follow_links: false
-    allowed_domains:
-      - "investopedia.com"
-    seeds:
-      - "https://www.investopedia.com/terms/c/contract.asp"
-      - "https://www.investopedia.com/terms/m/master-service-agreement.asp"
-      - "https://www.investopedia.com/terms/s/service-level-agreement.asp"
-      - "https://www.investopedia.com/terms/n/nda.asp"
-      - "https://www.investopedia.com/terms/i/indemnity.asp"
-      - "https://www.investopedia.com/terms/f/forcemajeure.asp"
-      - "https://www.investopedia.com/terms/b/breach-of-contract.asp"
-      - "https://www.investopedia.com/terms/l/letterofintent.asp"
+  # ---- Plain-language business explanations (DISABLED) ----------------
+  # Investopedia returns HTTP 403 to automated clients (WAF/bot protection):
+  # every page is refused, so a full run collected 0 pages. Per this tool's
+  # "respect the site" ethos we don't spoof a browser to evade it. Kept here,
+  # commented out, so the decision is documented — these concepts are already
+  # covered by Cornell LII + Wikipedia. Re-enable at your own discretion.
+  # - name: "Investopedia"
+  #   category: "business-explainer"
+  #   follow_links: false
+  #   allowed_domains:
+  #     - "investopedia.com"
+  #   seeds:
+  #     - "https://www.investopedia.com/terms/c/contract.asp"
+  #     - "https://www.investopedia.com/terms/m/master-service-agreement.asp"
+  #     - "https://www.investopedia.com/terms/s/service-level-agreement.asp"
+  #     - "https://www.investopedia.com/terms/n/nda.asp"
+  #     - "https://www.investopedia.com/terms/i/indemnity.asp"
+  #     - "https://www.investopedia.com/terms/f/forcemajeure.asp"
+  #     - "https://www.investopedia.com/terms/b/breach-of-contract.asp"
+  #     - "https://www.investopedia.com/terms/l/letterofintent.asp"
 
   # ---- Real executed B2B contracts from SEC EDGAR ----------------------
   # Public-company filings include real material contracts (exhibit 10):

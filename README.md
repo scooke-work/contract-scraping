@@ -106,7 +106,9 @@ this pass is entirely optional.
   International Sale of Goods, the governing framework for cross-border B2B sale-of-goods
   contracts. *(The former `iicl.law.virginia.edu` host is defunct; Trans-Lex carries the
   complete article text on one page.)*
-- **Investopedia** — plain-language business explainers of common contract terms.
+- **Investopedia** — *disabled*: returns HTTP 403 to automated clients, so it's
+  commented out in `sources.yaml` rather than evaded. Concepts are covered by
+  Cornell LII + Wikipedia.
 - **SEC EDGAR Contracts** — **real executed B2B agreements** from public-company filings
   (exhibit-10 material contracts). Queries EDGAR full-text search across an 18-phrase
   contract taxonomy (MSA, supply, reseller, distribution, licensing, SaaS, SOW, OEM,
