@@ -94,18 +94,93 @@ EMPTY_FIELDS = {
 # ---------------------------------------------------------------------------
 # Heuristic backend (no API key, no network)
 # ---------------------------------------------------------------------------
-_GOV_LAW = re.compile(
-    r"govern(?:ed|ing)\b[^.]{0,60}?\blaws?\s+of\s+(?:the\s+)?"
-    r"(?:State\s+of\s+|Commonwealth\s+of\s+)?([A-Z][A-Za-z .]{2,40}?)"
-    r"(?:,|;|\.| without| \(| and the\b)", re.I)
+# Known governing-law jurisdictions. Matching against this set keeps precision
+# high — free-form capture after "laws of" pulls in far too much noise.
+_US_STATES = [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+    "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
+    "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine",
+    "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+    "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+    "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+    "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+    "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    "District of Columbia",
+]
+_OTHER_JURISDICTIONS = [
+    "England and Wales", "England", "Scotland", "Northern Ireland",
+    "United Kingdom", "Ireland", "Switzerland", "Germany", "France",
+    "Netherlands", "Luxembourg", "Singapore", "Hong Kong", "Japan", "Canada",
+    "Ontario", "Quebec", "British Columbia", "Australia", "New South Wales",
+    "Sweden", "Spain", "Italy", "Belgium", "Denmark", "Finland", "Norway",
+    "Israel", "India", "China", "Brazil", "Mexico",
+]
+# Longest names first so e.g. "New York" wins over a stray "York".
+_JURIS_RE = re.compile(
+    r"\b(" + "|".join(re.escape(j) for j in sorted(
+        _US_STATES + _OTHER_JURISDICTIONS, key=len, reverse=True)) + r")\b")
+# Governing-law context cues; a jurisdiction counts only if it sits just after one.
+# Strong cues (the actual choice-of-law clause) are tried before broad ones, so a
+# party's "organized under the laws of X" doesn't outrank the real governing law.
+_GOV_STRONG = re.compile(r"governed|governing law|construed in accordance", re.I)
+_GOV_CUE = re.compile(r"govern|laws?\s+of|jurisdiction|construed|venue", re.I)
 
-_PARTIES = re.compile(
-    r"by and between\s+(.{3,90}?)\s+and\s+(.{3,90}?)(?:\s*\(|,|\.| each)", re.I | re.S)
+# Corporate-entity suffixes, longest variants first so "Corporation" beats "Corp".
+_PARTY_SUFFIX = (
+    r"Incorporated|Corporation|Company|Limited|Holdings|"
+    r"L\.?L\.?C|L\.?L\.?P|L\.?P|GmbH|N\.?V|S\.?p\.?A|S\.?A\.?S|S\.?A|"
+    r"Pte\.?\s*Ltd|Inc|Corp|Co|Ltd|LLC|LP|LLP|plc|AG|BV"
+)
+# An entity = capitalized tokens ending in a suffix. (?i:...) makes only the
+# suffix case-insensitive, so ALL-CAPS names ("VISTEON CORP") match while name
+# tokens still must start uppercase. "and" is excluded as a connector so
+# "Acme Corp and Beta LLC" splits into two parties, not one. The trailing
+# lookahead stops "Co" from matching inside "Communications".
+_ENTITY_RE = re.compile(
+    r"\b([A-Z][\w&.\-]*(?:[ ,]+(?:of |the )?[A-Z][\w&.\-]*){0,5}[ ,]+"
+    r"(?i:" + _PARTY_SUFFIX + r"))(?=\W|$)")
+_PARTY_BETWEEN = re.compile(
+    r"\b(?:by and between|by and among|between|among)\b(.{5,300}?)"
+    r"(?:\bwitnesseth\b|\brecitals?\b|\bwhereas\b|\bagree\b|\. )", re.I)
+# Looks like an entity but is not a contracting party.
+_PARTY_BLOCKLIST = re.compile(
+    r"securities and exchange|commission|exhibit|agreement|amendment|"
+    r"regulation|schedule|annex|\brule\b", re.I)
+# "Delaware corporation", "a Nevada company" — entity descriptors, not party names.
+_DESCRIPTOR_RE = re.compile(
+    r"^(?:" + "|".join(re.escape(j) for j in sorted(
+        _US_STATES + _OTHER_JURISDICTIONS, key=len, reverse=True)) +
+    r")\s+(?:corporation|company|limited|llc|partnership|lp)\b", re.I)
 
 _DATE = re.compile(
     r"(?:effective|dated|made|entered into)(?:\s+as\s+of)?\s+(?:this\s+)?"
-    r"([A-Z][a-z]+\s+\d{1,2},?\s+\d{4}|\d{1,2}(?:st|nd|rd|th)?\s+(?:day\s+of\s+)?[A-Z][a-z]+,?\s+\d{4}|\d{4}-\d{2}-\d{2})",
-    re.I)
+    r"([A-Z][a-z]+\s+\d{1,2},?\s+\d{4}"
+    r"|\d{1,2}(?:st|nd|rd|th)?\s+(?:day\s+of\s+)?[A-Z][a-z]+,?\s+\d{4}"
+    r"|\d{4}-\d{2}-\d{2})", re.I)
+
+# Initial term / duration, e.g. "initial term of three (3) years".
+_NUMWORD = r"\d{1,3}|one|two|three|four|five|six|seven|eight|nine|ten|twelve"
+_TERM = re.compile(
+    r"(?:initial term|term of this agreement|term hereof|"
+    r"agreement shall (?:continue|remain in (?:full )?(?:force and )?effect|"
+    r"have an? (?:initial )?term)|continue in (?:full )?(?:force and )?effect for|"
+    r"for an? initial (?:period|term) of|for a (?:period|term) of)"
+    r"[^.]{0,80}?\b(?:" + _NUMWORD + r")(?:\s*\(\d{1,3}\))?\s+(?:year|month)s?\b", re.I)
+
+# A title line, e.g. "MASTER SERVICES AGREEMENT" / "Third Amendment to ...".
+# No "." in the token class, so a match can't run across a sentence boundary.
+_AGMT_TYPE = re.compile(
+    r"\b((?:[A-Z][A-Za-z&'-]+\s+){1,6}"
+    r"(?:AGREEMENT|AMENDMENT|CONTRACT|ADDENDUM|MEMORANDUM|GUARANTY|GUARANTEE))\b")
+# SEC redaction/boilerplate that can masquerade as a title — never an agreement type.
+_TYPE_BLOCKLIST = re.compile(
+    r"registrant|commission|portions|omitted|redacted|confidential treatment|"
+    r"pursuant|regulation|securities|material contract", re.I)
+# Leading connector words to trim from a captured name/title (e.g. "To "/"By ").
+# Deliberately excludes a/an/old/new so real names like "New Relic" survive.
+_LEAD_RE = re.compile(
+    r"^(?:(?:by|and|between|among|whereas|the|this|that|to|of)\s+)+", re.I)
 
 # clause type -> regex fragments that signal its presence
 _CLAUSE_SIGNS = {
@@ -133,11 +208,64 @@ def _clean(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip(" .,;:-")
 
 
+def _strip_edgar_header(text: str) -> str:
+    """Drop the SGML/filename noise EDGAR prepends to an exhibit, e.g.
+    'EX-10.3 4 k35009exv10w3.htm  ...' -> the actual contract text."""
+    return re.sub(r"^\s*EX-\S+\s+\d+\s+\S+?\.(?:htm|html|txt)\s+", "", text, flags=re.I)
+
+
+def _extract_governing_law(text: str) -> str:
+    """Find a known jurisdiction sitting just after a governing-law cue. Strong
+    cues (the actual choice-of-law clause) are tried before broad ones."""
+    for cues in (_GOV_STRONG, _GOV_CUE):
+        for cue in cues.finditer(text):
+            jm = _JURIS_RE.search(text, cue.start(), cue.end() + 80)
+            if jm:
+                return jm.group(1)
+    return ""
+
+
+def _extract_parties(text: str) -> list:
+    """Entity names from the 'between X and Y' preamble (or the head as fallback)."""
+    head = text[:2500]
+    between = _PARTY_BETWEEN.search(head)
+    scope = between.group(1) if between else head
+    found: list = []
+    seen: set = set()
+    for em in _ENTITY_RE.finditer(scope):
+        name = _LEAD_RE.sub("", _clean(em.group(1)))
+        if (len(name) < 3 or _PARTY_BLOCKLIST.search(name)
+                or _DESCRIPTOR_RE.match(name)):       # skip "Delaware corporation"
+            continue
+        if name.lower() in seen:                      # case-insensitive dedup
+            continue
+        seen.add(name.lower())
+        found.append(name)
+        if len(found) >= 3:
+            break
+    return found
+
+
+def _extract_term(text: str) -> str:
+    m = _TERM.search(text)
+    return _clean(m.group(0))[:140] if m else ""
+
+
+def _extract_agreement_type(text: str) -> str:
+    head = _strip_edgar_header(text)[:1500]
+    for m in _AGMT_TYPE.finditer(head):
+        t = _LEAD_RE.sub("", _clean(m.group(1)))
+        if not t or _TYPE_BLOCKLIST.search(t):        # skip redaction boilerplate
+            continue
+        return t.title() if t.isupper() else t        # title-case ALL-CAPS headings
+    return ""
+
+
 def heuristic_extract(text: str) -> dict:
     out = dict(EMPTY_FIELDS)
-    # Collapse whitespace so phrases split across line breaks (very common in
-    # scraped HTML and PDF-extracted text) still match, e.g. "automatically\nrenew".
-    text = re.sub(r"\s+", " ", text)
+    # Strip EDGAR header noise, then collapse whitespace so phrases split across
+    # line breaks (common in scraped HTML / PDF text) still match.
+    text = re.sub(r"\s+", " ", _strip_edgar_header(text))
     low = text.lower()
 
     inventory = [name for name, signs in _CLAUSE_SIGNS.items()
@@ -146,13 +274,10 @@ def heuristic_extract(text: str) -> dict:
     out["indemnification"] = "indemnification" in inventory
     out["confidentiality"] = "confidentiality" in inventory
 
-    m = _GOV_LAW.search(text)
-    if m:
-        out["governing_law"] = _clean(m.group(1))
-
-    m = _PARTIES.search(text)
-    if m:
-        out["parties"] = [_clean(m.group(1)), _clean(m.group(2))]
+    out["governing_law"] = _extract_governing_law(text)
+    out["parties"] = _extract_parties(text)
+    out["term"] = _extract_term(text)
+    out["agreement_type"] = _extract_agreement_type(text)
 
     m = _DATE.search(text)
     if m:

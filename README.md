@@ -93,6 +93,15 @@ The LLM backend forces a schema-validated tool call (no brittle JSON parsing) an
 contract rather than aborting the run. The core scraper has **zero LLM dependencies** —
 this pass is entirely optional.
 
+The **heuristic backend** (no key, no network) extracts the clause inventory,
+indemnity/confidentiality flags, payment terms, effective date, agreement type, term, and
+— with reasonable precision — parties (entity-name parsing that skips "a Delaware
+corporation"-style descriptors) and governing law (matched against a list of real
+jurisdictions, preferring the choice-of-law clause over a party's state of incorporation).
+It first strips EDGAR's SGML/filename header noise. It's best-effort: recall is lower than
+the LLM's, and genuinely silent fields stay empty — many EDGAR hits are short *amendments*
+that don't restate parties/term/governing law, so empty there is correct, not a miss.
+
 ## The sources
 
 `sources.yaml` ships with a curated, scraping-tolerant set:

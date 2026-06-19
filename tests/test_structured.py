@@ -64,3 +64,42 @@ def test_llm_extract_parses_tool_use_and_fills_empties():
     assert out["agreement_type"] == "MSA"
     assert out["parties"] == ["A", "B"]
     assert out["payment_terms"] == ""         # missing key filled from EMPTY_FIELDS
+
+
+# --- tuned heuristics -------------------------------------------------------
+
+def test_strip_edgar_header():
+    raw = "EX-10.3 4 k35009exv10w3.htm THIRD AMENDMENT This Agreement ..."
+    assert es._strip_edgar_header(raw).startswith("THIRD AMENDMENT")
+
+
+def test_governing_law_prefers_choice_of_law_over_incorporation():
+    # A party's incorporation state (Nevada) must not outrank the real choice of law.
+    txt = ("Acme Inc., a Nevada corporation, and Beta LLC. This Agreement shall be "
+           "governed by the laws of the State of New York.")
+    assert es.heuristic_extract(txt)["governing_law"] == "New York"
+
+
+def test_governing_law_absent_returns_empty():
+    assert es.heuristic_extract("Plain text, no choice of law. Net 30.")["governing_law"] == ""
+
+
+def test_parties_split_and_skip_descriptor():
+    txt = ('This Agreement is made by and between Acme Corporation, a Delaware '
+           'corporation, and Beta Technologies, LLC ("Beta"). WHEREAS the parties...')
+    parties = es.heuristic_extract(txt)["parties"]
+    assert any("Acme" in p for p in parties)
+    assert any("Beta" in p for p in parties)
+    assert not any("Delaware corporation" == p for p in parties)
+
+
+def test_agreement_type_skips_redaction_boilerplate():
+    txt = ("PORTIONS OF THIS EXHIBIT HAVE BEEN OMITTED PURSUANT TO REGULATION S-K. "
+           "MASTER SUPPLY AGREEMENT This Master Supply Agreement is entered into...")
+    assert es.heuristic_extract(txt)["agreement_type"] == "Master Supply Agreement"
+
+
+def test_term_extraction():
+    txt = "The initial term of this Agreement shall be three (3) years from the Effective Date."
+    term = es.heuristic_extract(txt)["term"].lower()
+    assert "three" in term and "year" in term
