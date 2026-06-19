@@ -223,6 +223,9 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
   Playbook** — the vendor-side cheat-sheet for the same 25 clauses: opening ask, fallback
   ladder (give → get), red lines, and escalation triggers, plus an approval/escalation
   matrix and a deal-breaker red-lines quick reference.
+- [`docs/persona-summaries.md`](docs/persona-summaries.md) — **Key Findings by Persona** —
+  the playbooks distilled for three audiences: Sales and Legal (vendor-side) and
+  Procurement (the buyer's mirror view).
 
 ## License
 
