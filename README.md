@@ -226,6 +226,9 @@ sources.yaml -> crawl/search -> fetch -> extract -> chunk -> write
 - [`docs/persona-summaries.md`](docs/persona-summaries.md) — **Key Findings by Persona** —
   the playbooks distilled for three audiences: Sales and Legal (vendor-side) and
   Procurement (the buyer's mirror view).
+- [`docs/msa-review-checklist.md`](docs/msa-review-checklist.md) — **MSA Review Checklist** —
+  the full anatomy of a master services agreement with the specific sub-points to check per
+  clause (SaaS/services, plus goods/supply UCC Article 2 add-ons).
 
 ## License
 
