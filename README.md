@@ -225,7 +225,7 @@ four practitioner docs under [`docs/`](docs/):
 | [Vendor-defense playbook](docs/vendor-defense-playbook.md) | The vendor-side cheat-sheet for those 25 clauses: opening ask → **fallback ladder** (give → get) → **red lines** → escalation triggers, plus an approval matrix and red-lines quick reference. |
 | [Persona summaries](docs/persona-summaries.md) | The playbooks distilled for three audiences — **Sales** & **Legal** (vendor-side) and **Procurement** (the buyer's mirror). |
 | [MSA review checklist](docs/msa-review-checklist.md) | The full **anatomy of an MSA** with per-clause sub-points to check (SaaS/services + goods/supply UCC Article 2 add-ons). |
-| [Clause-language bank](docs/clause-library.md) | **Model clause language** in three variants (vendor / market / customer) — the drafting complement to the playbooks (Part 1: core risk/IP/commercial clauses). |
+| [Clause-language bank](docs/clause-library.md) | **Model clause language** in three variants (vendor / market / customer) for all 25 clauses, plus standard boilerplate — the drafting complement to the playbooks. |
 
 These are general market-practice references, not legal advice.
 

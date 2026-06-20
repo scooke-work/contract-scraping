@@ -15,9 +15,8 @@ waiver must be *conspicuous* (UCC 2-316 / 2-719).
 > **General market-practice templates, not legal advice.** Have counsel adapt to your deal
 > and jurisdiction before use.
 
-*Part 1 below covers the 9 core risk/IP/commercial clauses. Part 2 (remaining clauses —
-DPA, escalation, SLA, assignment, governing law, force majeure, audit, IP indemnity edge
-cases, boilerplate) is listed at the end.*
+*Part 1 covers the 9 core risk/IP/commercial clauses; Part 2 covers the remaining clauses
+(DPA, commercial, operational) and standard boilerplate — the full set.*
 
 ---
 
@@ -140,12 +139,223 @@ cases, boilerplate) is listed at the end.*
 
 ---
 
-## Part 2 — remaining clauses (to add)
+# Part 2 — remaining clauses
 
-These pair with the playbook but are either lower-frequency to redraft or more standardized;
-say the word and I'll add them (with the same three-variant treatment where variants matter):
+## 10. Data Protection, Privacy & Security (DPA)
 
-- **Data Protection, Privacy & Security (DPA)** — usually a separate exhibit; breach-notice clock, subprocessor terms, security standard, super-cap.
-- **Price / fee escalation** · **Most-favored-customer / benchmarking** · **Service levels (SLA) & credits** · **Insurance**.
-- **Assignment & change of control** · **Governing law, venue & dispute resolution** · **Contractual limitation period** · **Force majeure** · **Audit rights** · **Publicity** · **Acceptance** · **Compliance / anti-corruption** · **Subcontracting / non-solicit** · **Data portability / escrow**.
-- **Boilerplate (single standard version):** notices · entire agreement & order of precedence · amendment · waiver · severability · counterparts / e-signature · independent contractor · survival · third-party beneficiaries · cumulative remedies.
+*Anchor: usually a separate exhibit; the live points are the breach clock, subprocessor liability, and the super-cap. See playbook §7.*
+
+**🟥 Vendor-favorable**
+> Provider processes Customer Personal Data as a processor solely to provide the Services, per Customer's instructions and the DPA at [URL]. Provider maintains commercially reasonable technical and organizational measures, may engage the subprocessors listed at [URL], and will notify Customer of a confirmed Personal Data Breach without undue delay. Customer's audit right is satisfied by Provider's then-current SOC 2 report.
+
+**⚖️ Market (balanced)**
+> Provider maintains a written information-security program aligned to [SOC 2 Type II / ISO 27001] (Exhibit __); notifies Customer of a Personal Data Breach without undue delay and no later than seventy-two (72) hours after becoming aware, with the information Customer needs for its own notifications and reasonable assistance; gives advance notice of new subprocessors with a [30]-day objection right; and remains liable for its subprocessors. Cross-border transfers rely on the SCCs / IDTA / Data Privacy Framework. Liability for breach of this Section is subject to the data super-cap (Section 1) and carved out of the consequential-damages exclusion.
+
+**🟦 Customer-favorable**
+> *As Market, with:* breach notice within [48] hours of becoming aware; Provider maintains [SOC 2 Type II and ISO 27001] and promptly remediates any lapse or qualified finding; Customer (or its auditor) may audit for cause; new subprocessors require [Customer's prior approval / push notice + objection + right to terminate the affected Services]; Provider will **not** use Customer Personal Data to train or improve any model; and Provider's liability for a data-security breach is [uncapped / 5× fees or its cyber limit].
+
+## 11. Price / Fee Escalation at Renewal
+
+*Anchor: 3–5% is market; close the uncapped/"greater-of" tail and fix the discounted base. See playbook §9.*
+
+**🟥 Vendor-favorable**
+> On each renewal, fees increase by the greater of [5–7%] or the change in CPI over the prior term, applied to Provider's then-current list rates.
+
+**⚖️ Market (balanced)**
+> On renewal, fees will not increase by more than [5%] (or, if lower, the increase in the CPI-U over the prior twelve months), applied to the fees paid in the prior term. Provider will give at least [60] days' notice of any increase.
+
+**🟦 Customer-favorable**
+> Fees are fixed for the initial term, and no renewal increase will exceed [3%] over the prior term's fees [or: fees are fixed for [3] years]; any increase is calculated on Customer's actual discounted fees, not list, and does not compound retroactively.
+
+## 12. Most-Favored-Customer / Benchmarking
+
+*Anchor: vendors give a price cap before parity; a narrow MFN survives only when carve-outs make it symbolic. See playbook §10.*
+
+**🟥 Vendor-favorable**
+> *Decline; redirect to the escalation cap.* If pressed: Provider represents the list fees offered are no less favorable than its standard list fees for comparable volume; this excludes discounts, promotions, bundles, and channel/affiliate pricing.
+
+**⚖️ Market (balanced)**
+> If during the Term Provider grants a customer of comparable size and commitment more favorable per-unit fees for the same Services on substantially similar terms, Provider will offer Customer those fees prospectively for the remainder of the Term, verified by an officer's certificate on request. *(Frequently replaced entirely by a hard escalation cap.)*
+
+**🟦 Customer-favorable**
+> Provider warrants Customer's net effective per-unit pricing is and will remain at least as favorable as that offered to any comparable customer; on request an independent auditor may verify, and more-favorable pricing applies as a retroactive credit. *Multi-year alternative:* beginning in Year 2, Customer may engage an independent benchmarker; if fees exceed the [top-quartile] market range, the parties will adjust or Customer may terminate.
+
+## 13. Service Levels (SLA) & Uptime Credits
+
+*Anchor: the % rarely moves; win the mechanics — cumulative-remedies carve-out + chronic-failure exit. See playbook §13.*
+
+**🟥 Vendor-favorable**
+> Provider will use commercially reasonable efforts to make the Services available 99.9% of each calendar month, excluding scheduled maintenance and the exclusions in the SLA at [URL]. Service credits per that schedule are Customer's sole and exclusive remedy for availability failures, and must be requested within thirty (30) days.
+
+**⚖️ Market (balanced)**
+> Provider will meet 99.9% monthly uptime (tiered per Exhibit __). Credits (up to [30–50%] of the monthly fee) are Customer's sole and exclusive remedy **for availability failures only** and do not limit remedies for breach of security, IP, or confidentiality obligations. Maintenance is capped and pre-scheduled; claims within [60] days.
+
+**🟦 Customer-favorable**
+> 99.95% for [core] services; top-tier credit of [100%] of the monthly fee; **credits are without prejudice to Customer's other rights and remedies (not exclusive)**; if uptime falls below [95%] in any month or below [99.9%] for [3] consecutive months, Customer may terminate the affected Services and receive a pro-rata refund; credits are applied automatically.
+
+## 14. Insurance
+
+*Anchor: concede higher limits, not additional-insured on claims-made cyber/E&O. See playbook §14.*
+
+**🟥 Vendor-favorable**
+> Provider will maintain commercially reasonable insurance, including commercial general liability of at least $1M per occurrence / $2M aggregate, and will provide a certificate on request.
+
+**⚖️ Market (balanced)**
+> Provider will maintain, with carriers rated A- VII or better: CGL ($1M / $2M); Technology Errors & Omissions ($[2–5]M); Cyber/Privacy ($[3–5]M); and statutory workers' compensation. On request Provider will name Customer as additional insured on the CGL (primary and non-contributory) and provide certificates. This insurance does not limit Provider's liability.
+
+**🟦 Customer-favorable**
+> *As Market, with:* Cyber/Privacy of at least $[5–10]M (no sublimit below $[__] for ransomware/business interruption); E&O written separately from Cyber; Customer named additional insured on the CGL with waiver of subrogation; [30] days' notice of cancellation; and Provider's cyber limit floors the data-breach super-cap (Section 1).
+
+## 15. Assignment & Change of Control
+
+*Anchor: mutual + M&A/affiliate carve-out is standard; the fight is the competitor exclusion and CoC trigger. See playbook §15.*
+
+**🟥 Vendor-favorable**
+> Customer may not assign this Agreement without Provider's prior written consent. Provider may assign freely to an affiliate or in connection with a merger, acquisition, or sale of assets. Any prohibited assignment is void. A change of control of Customer is deemed an assignment requiring Provider's consent.
+
+**⚖️ Market (balanced)**
+> Neither party may assign without the other's prior written consent (not to be unreasonably withheld, conditioned, or delayed), except either party may assign, on notice, to an affiliate or in connection with a merger or sale of all or substantially all assets, provided the assignee assumes this Agreement in writing and is not a competitor of the other party. This Agreement binds permitted successors and assigns.
+
+**🟦 Customer-favorable**
+> *As Market, with:* the change-of-control "deemed assignment" trigger removed (or made mutual); if Provider is acquired by a Customer competitor, Customer may terminate on [30] days' notice; and nothing restricts a party's assignment of receivables (UCC §§9-406/9-408).
+
+## 16. Governing Law, Venue & Dispute Resolution
+
+*Anchor: neutral law; enterprise keeps courts; jury waiver survives. See playbook §16.*
+
+**🟥 Vendor-favorable**
+> This Agreement is governed by the laws of the State of [Provider's home state], excluding conflicts rules. The parties consent to the exclusive jurisdiction and venue of the courts located in [home state]. EACH PARTY WAIVES ANY RIGHT TO A JURY TRIAL.
+
+**⚖️ Market (balanced)**
+> Governed by the laws of the State of [Delaware / New York], excluding conflicts rules. The parties submit to the exclusive jurisdiction of the state and federal courts in [neutral venue], and will first attempt to resolve any dispute by escalation to senior executives within [30] days. EACH PARTY WAIVES TRIAL BY JURY. Either party may seek injunctive relief for IP or confidentiality breaches in any court of competent jurisdiction.
+
+**🟦 Customer-favorable**
+> Governed by the laws of [Customer's state / a neutral state]; disputes are resolved in court (not mandatory arbitration); the jury waiver and any fee-shifting are mutual; nothing limits either party's right to equitable relief. *(Arbitration alternative for cross-border/confidential deals: binding arbitration under [AAA/JAMS] rules, seat [city], before [one/three] arbitrator(s), with class actions waived.)*
+
+## 17. Contractual Limitation Period
+
+*Anchor: a clear, reasonable shortening is enforceable; the fight is accrual vs. discovery. See playbook §17.*
+
+**🟥 Vendor-favorable**
+> No claim arising out of or related to this Agreement may be brought more than one (1) year after the cause of action accrued.
+
+**⚖️ Market (balanced)**
+> No claim may be brought more than one (1) year after the party knew or reasonably should have known of the facts giving rise to it; this does not apply to claims for IP infringement, breach of confidentiality, indemnification, or payment.
+
+**🟦 Customer-favorable**
+> No claim may be brought more than two (2) years after discovery; this Section is mutual, subject to the carve-outs above, and does not shorten any statutory period that cannot be contractually reduced. *(Note: UCC 2-725 floors goods claims at one year; unenforceable in Louisiana.)*
+
+## 18. Force Majeure
+
+*Anchor: payment isn't excused, but pay-for-what-you-get + a 30-day termination valve. See playbook §18.*
+
+**🟥 Vendor-favorable**
+> Neither party is liable for any delay or failure (other than payment obligations) caused by events beyond its reasonable control, including acts of God, war, terrorism, pandemic, government action, labor disputes, and utility, internet, or supplier failures.
+
+**⚖️ Market (balanced)**
+> Neither party is liable for delay or failure (other than payment) due to events beyond its reasonable control and not its fault (the listed events and other similar events). The affected party will notify the other and use reasonable efforts to mitigate and resume. Payment is not excused, but Customer is entitled to a credit or pro-rata refund for Services not provided during the event, and Provider's disaster-recovery / business-continuity obligations are not excused.
+
+**🟦 Customer-favorable**
+> *As Market, with:* if the event continues more than [thirty (30)] days, either party may terminate the affected Services and Customer receives a refund of prepaid, unused fees; and security, confidentiality, and breach-notification obligations are never excused.
+
+## 19. Audit / Compliance-Verification Rights
+
+*Anchor: conduct terms are cheap; the money is the true-up rate, not just the threshold. See playbook §19.*
+
+**🟥 Vendor-favorable**
+> Provider may, on reasonable notice, audit Customer's use of the Services for compliance. If an audit reveals underpayment, Customer will pay the shortfall at list rates plus the audit costs.
+
+**⚖️ Market (balanced)**
+> On at least thirty (30) days' notice, no more than once per twelve (12) months (or for cause), an independent auditor under NDA may verify Customer's compliance during business hours, excluding other-tenant and regulated data. Underpayment exceeding [5%] is paid at contract rates plus reasonable audit costs, after Customer has [30] days to cure.
+
+**🟦 Customer-favorable**
+> *As Market, with:* true-up at contract (not list) rates; cost-shift only above [5–10%]; no automatic copyright-infringement or termination escalation; and a reciprocal right for Customer to audit Provider's fees, SLA performance, and security on the same terms.
+
+## 20. Publicity & Use of Name/Logo
+
+*Anchor: bare logo is cheap; PR/case studies need per-instance consent. See playbook §20.*
+
+**🟥 Vendor-favorable**
+> Customer grants Provider the right to use Customer's name and logo to identify Customer as a customer in Provider's marketing materials, customer lists, and website.
+
+**⚖️ Market (balanced)**
+> Provider may identify Customer as a customer using its name and logo per Customer's brand guidelines (no implied endorsement); any press release, case study, or quote requires Customer's prior written consent (not unreasonably withheld), with a [5–10] business-day review.
+
+**🟦 Customer-favorable**
+> Neither party will use the other's name, logo, or marks without prior written consent for each use; on termination Provider will cease use and remove Customer's marks within [30] days; carve-out for confidential disclosure to investors or advisors under NDA. Provider will not use Customer Data or this relationship to train any model.
+
+## 21. Acceptance / Acceptance Testing
+
+*Anchor: objective criteria set before testing + a real cure loop and failure backstop. See playbook §21.*
+
+**🟥 Vendor-favorable**
+> A Deliverable is deemed accepted if Customer does not give written notice of material non-conformity within five (5) business days of delivery, or on first production use. Provider's sole obligation is to correct confirmed non-conformities within a commercially reasonable time.
+
+**⚖️ Market (balanced)**
+> Customer will test each Deliverable against the mutually agreed acceptance criteria within fifteen (15) business days of delivery, and will accept or give written notice specifying the criteria not met. Provider will correct and re-deliver (up to [2] cycles, resetting the test period). If Customer does not respond, Provider may send a reminder and the Deliverable is deemed accepted [5] business days later. Production use other than agreed UAT is deemed acceptance.
+
+**🟦 Customer-favorable**
+> *As Market, with:* a thirty (30) business-day test period; on failure after [2] cure cycles Customer may extend, accept with an equitable price reduction, or terminate the affected SOW and receive a refund of fees paid for the Deliverable; and [10–20%] of the Deliverable fee is held back until acceptance.
+
+## 22. Compliance with Laws / Anti-Corruption
+
+*Anchor: mutual ABAC reps are cheap; the cost items are audit and a dollar-one indemnity. See playbook §22.*
+
+**🟥 Vendor-favorable**
+> Each party will comply with applicable laws. Customer will not use the Services in violation of export-control or sanctions laws, or by or for any sanctioned person or embargoed jurisdiction.
+
+**⚖️ Market (balanced)**
+> Each party will comply with applicable laws, including anti-corruption laws (the U.S. FCPA and the UK Bribery Act) and export-control and sanctions laws. Each represents that it has not and will not offer, pay, or accept any improper payment, maintains reasonable anti-corruption controls, and is not a Sanctioned Person or 50%-or-more owned by one.
+
+**🟦 Customer-favorable**
+> *As Market, with:* Provider maintains an anti-corruption compliance program and flows these obligations down to subcontractors; a violation is a material breach permitting termination without cure; and breach of this Section is an Excluded Matter (uncapped / super-capped) under Section 1.
+
+## 23. Subcontracting, Personnel & Non-Solicitation
+
+*Anchor: delegate the work, not the responsibility; non-solicits are void as to CA/ND/OK staff. See playbook §23.*
+
+**🟥 Vendor-favorable**
+> Provider may use subcontractors and remains responsible for their performance. During the Term and for [12] months after, Customer will not solicit for employment any Provider personnel involved in the Services.
+
+**⚖️ Market (balanced)**
+> Provider may subcontract but remains fully liable for its subcontractors and will flow down relevant terms; subcontractors with access to Customer Data are subject to the DPA subprocessor process. During the engagement and for [12] months after, neither party will solicit the other's personnel involved in the engagement; general advertising and responses to it are excluded.
+
+**🟦 Customer-favorable**
+> *As Market, with:* subcontractors with access to Customer Data or systems require Customer's prior approval; Provider names key personnel who will not be reassigned for [6–12] months without Customer's consent and an equal-or-better replacement; and the non-solicit is mutual and limited to active solicitation of engagement staff. **Employee non-solicits are void/unenforceable as to California (and North Dakota / Oklahoma) personnel — sever accordingly.**
+
+## 24. Data Portability, Return & Transition
+
+*Anchor: portability is cheap to concede; lock the transition rate card at signing. See playbook §24.*
+
+**🟥 Vendor-favorable**
+> On request within thirty (30) days after termination, Provider will make Customer Data available for export via the Services' standard export functionality, after which Provider may delete it.
+
+**⚖️ Market (balanced)**
+> For [60–90] days after termination, Provider will make Customer Data available for export in a documented, machine-readable format (e.g., CSV/JSON or a documented API), at no charge for normal volumes; thereafter Provider will delete it and, on request, certify deletion (backup and legal-hold carve-outs apply). On request, Provider will provide transition assistance at the rate card in [Exhibit __].
+
+**🟦 Customer-favorable**
+> *As Market, with:* "Customer Data" includes attachments, configuration, and logs; export is free; transition assistance for up to [__] days at the rate card locked at signing, with [__] hours included; and, for critical dependencies, Provider maintains a continuity arrangement ([standby hosting / source-code escrow]) released on insolvency, discontinuation, or chronic failure.
+
+## 25. Boilerplate (standard single-version language)
+
+**Notices.**
+> Notices must be in writing to the addresses on the cover page. Routine notices may be given by email; notices of breach, termination, or a claim must be given by personal delivery, nationally recognized courier, or certified mail (or email with confirmed receipt), with a copy to the recipient's [Legal / General Counsel]. Notice is effective on receipt.
+
+**Entire agreement & order of precedence.**
+> This Agreement (including its Order Forms, SOWs, DPA, and exhibits) is the entire agreement and supersedes all prior or contemporaneous discussions. In a conflict, the following order controls: this MSA, then the DPA (for data-protection matters), then the applicable SOW or Order Form — except an Order Form or SOW prevails over the MSA only where it expressly identifies the superseded Section and is signed by both parties. Each party acknowledges it has not relied on any representation not set out in this Agreement; this does not exclude liability for fraud.
+
+**Amendment.** > No amendment is effective unless in writing and signed by both parties.
+
+**Waiver.** > No failure or delay in exercising a right is a waiver, and no waiver is effective unless in writing.
+
+**Severability.** > If any provision is held unenforceable, it will be modified to the minimum extent necessary to make it enforceable, and the remaining provisions stay in effect.
+
+**Counterparts / e-signature.** > This Agreement may be executed in counterparts and by electronic signature, each of which is deemed an original.
+
+**Independent contractors.** > The parties are independent contractors; nothing creates a partnership, joint venture, agency, or employment relationship.
+
+**Survival.** > Provisions that by their nature should survive termination — including accrued fees, IP ownership, confidentiality, warranty disclaimers, limitation of liability, indemnification, and governing law — survive.
+
+**Third-party beneficiaries.** > There are no third-party beneficiaries, except indemnified parties may enforce the indemnities.
+
+**Cumulative remedies.** > Except where a remedy is expressly stated to be sole and exclusive, all remedies are cumulative and in addition to any other remedies available at law or in equity.
