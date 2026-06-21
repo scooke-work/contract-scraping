@@ -120,8 +120,8 @@ sources:
   - name: "SEC EDGAR Contracts"
     category: "real-agreements"
     type: edgar
-    max_pages: 24            # total agreements to collect across all queries (bump to sample more)
-    per_query: 3             # cap per query (keeps variety across the taxonomy below)
+    max_pages: 120           # total agreements to collect across all queries (sized for the benchmark)
+    per_query: 8             # cap per query across the taxonomy below
     exhibit_types:           # keep only real contract exhibits, not filing bodies that
       - "EX-10"              # mention the phrase. EX-10 = "Material Contracts".
     # Optional date window (EDGAR full-text search covers 2001-present):
