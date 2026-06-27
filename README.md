@@ -223,6 +223,7 @@ of practitioner references under [`docs/`](docs/):
 |-----|------------|
 | [Negotiation playbook](docs/negotiation-playbook.md) | Where vendors **start** vs. where deals **land** across 25 clauses, with rationale and key levers (partly grounded in the scraped EDGAR agreements). |
 | [Vendor-defense playbook](docs/vendor-defense-playbook.md) | The vendor-side cheat-sheet for those 25 clauses: opening ask → **fallback ladder** (give → get) → **red lines** → escalation triggers, plus an approval matrix and red-lines quick reference. |
+| [Buyer-redline playbook](docs/buyer-redline-playbook.md) | The **buyer-side mirror**: open → climb the ladder (give → get) → must-haves / walk-aways, with where to push hardest — the matched pair to the vendor-defense playbook. |
 | [Persona summaries](docs/persona-summaries.md) | The playbooks distilled for three audiences — **Sales** & **Legal** (vendor-side) and **Procurement** (the buyer's mirror). |
 | [MSA review checklist](docs/msa-review-checklist.md) | The full **anatomy of an MSA** with per-clause sub-points to check (SaaS/services + goods/supply UCC Article 2 add-ons). |
 | [Clause-language bank](docs/clause-library.md) | **Model clause language** in three variants (vendor / market / customer) for all 25 clauses, plus standard boilerplate — the drafting complement to the playbooks. |
