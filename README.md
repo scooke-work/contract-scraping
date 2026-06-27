@@ -227,6 +227,7 @@ of practitioner references under [`docs/`](docs/):
 | [Persona summaries](docs/persona-summaries.md) | The playbooks distilled for three audiences — **Sales** & **Legal** (vendor-side) and **Procurement** (the buyer's mirror). |
 | [MSA review checklist](docs/msa-review-checklist.md) | The full **anatomy of an MSA** with per-clause sub-points to check (SaaS/services + goods/supply UCC Article 2 add-ons). |
 | [Clause-language bank](docs/clause-library.md) | **Model clause language** in three variants (vendor / market / customer) for all 25 clauses, plus standard boilerplate — the drafting complement to the playbooks. |
+| [Clause risk matrix](docs/clause-risk-matrix.md) | **Capstone:** every clause as a risk-tiered grid — balanced example, seller- vs buyer-leaning positions at L1/L2/L3 with the **approver per level**, and the **walkaway + why**. |
 | [EDGAR market benchmark](docs/edgar-benchmark.md) | **Data-backed** clause-presence %, governing-law and payment-term distributions mined from 370 real EX-10 agreements — regenerate with `scripts/benchmark_edgar.py`. |
 
 The playbooks/checklist/clause bank are general market-practice references (not legal advice); the benchmark is a directional read of a small automated sample.
