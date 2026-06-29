@@ -231,6 +231,8 @@ of practitioner references under [`docs/`](docs/):
 | [Clause-language bank](docs/clause-library.md) | **Model clause language** in three variants (vendor / market / customer) for all 25 clauses, plus standard boilerplate — the drafting complement to the playbooks. |
 | [Clause risk matrix](docs/clause-risk-matrix.md) | **Capstone:** every clause as a risk-tiered grid — balanced example, seller- vs buyer-leaning positions at L1/L2/L3 with the **approver per level**, and the **walkaway + why**. |
 | [EDGAR market benchmark](docs/edgar-benchmark.md) | **Data-backed** clause-presence %, governing-law and payment-term distributions mined from 370 real EX-10 agreements — regenerate with `scripts/benchmark_edgar.py`. |
+| [Real clause examples](docs/real-clause-examples.md) | **Verbatim** clause excerpts from the 370 scraped agreements, by clause type and attributed to the filer — the real-world companion to the clause bank (`scripts/extract_clause_examples.py`). |
+| [Glossary & acronyms](docs/glossary.md) | Plain-English definitions of the terms and acronyms (FOEP, supercap, MFN, SCC, ABAC, …) used across the knowledge base. |
 
 The playbooks/checklist/clause bank are general market-practice references (not legal advice); the benchmark is a directional read of a small automated sample.
 
