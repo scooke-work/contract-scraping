@@ -26,6 +26,8 @@ After a run, everything lands in the `output/` folder:
 | `raw/<source>/*.json` | One clean record per page (full text + title, URL, date, word count, fetched-at). |
 | `manifest.json` | Summary of the run: pages, chunks, and per-source counts. |
 
+> **Field-by-field schema for every output file** (types, examples, how the records relate): [`docs/data-schema.md`](docs/data-schema.md).
+
 ## Install
 
 Requires **Python 3.9+**.
